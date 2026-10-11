@@ -1,11 +1,17 @@
 /* ============================================================
-   NACI Robotics 2935
-   Two small things: the phone menu, and the fade in on scroll.
+   NACI ROBOTICS 2935
+
+   1. Phone menu
+   2. Scroll progress bar
+   3. Fade in on scroll
+   4. Headline reveal, word by word
+   5. Counting numbers
+   6. Mouse parallax
    ============================================================ */
 
-/* ---- 1. PHONE MENU ----------------------------------------
-   The Menu button shows and hides the nav on small screens.
-   ------------------------------------------------------------ */
+var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---- 1. PHONE MENU ----------------------------------------- */
 var menuBtn = document.querySelector(".menu-btn");
 var navLinks = document.querySelector(".nav-links");
 
@@ -17,40 +23,166 @@ if (menuBtn && navLinks) {
   });
 }
 
-/* ---- 2. FADE IN ON SCROLL ---------------------------------
-   Anything with class="reveal" starts invisible and fades up
-   when you scroll to it. Add the class to any element and it
-   just works, no extra code needed.
+/* ---- 2. SCROLL PROGRESS BAR --------------------------------
+   The thin orange line across the very top of the window.
    ------------------------------------------------------------ */
-var revealItems = document.querySelectorAll(".reveal");
+var bar = document.querySelector(".scroll-bar");
 
-if ("IntersectionObserver" in window) {
-  var watcher = new IntersectionObserver(
+if (bar) {
+  var updateBar = function () {
+    var max = document.body.scrollHeight - window.innerHeight;
+    var progress = max > 0 ? window.scrollY / max : 0;
+    bar.style.transform = "scaleX(" + progress + ")";
+  };
+  window.addEventListener("scroll", updateBar, { passive: true });
+  window.addEventListener("resize", updateBar);
+  updateBar();
+}
+
+/* ---- 3. FADE IN ON SCROLL ----------------------------------
+   Anything with class="reveal" starts hidden and fades up when
+   you scroll to it. Just add the class, no other code needed.
+   ------------------------------------------------------------ */
+var revealItems = document.querySelectorAll(".reveal, .reveal-group, .split-in");
+
+if ("IntersectionObserver" in window && !reducedMotion) {
+  var revealWatcher = new IntersectionObserver(
     function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add("visible");
-          watcher.unobserve(entry.target);
+          revealWatcher.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+    { threshold: 0.1, rootMargin: "0px 0px -60px 0px" }
   );
-
-  revealItems.forEach(function (item) {
-    watcher.observe(item);
-  });
+  revealItems.forEach(function (item) { revealWatcher.observe(item); });
 } else {
-  /* Very old browser, just show everything. */
-  revealItems.forEach(function (item) {
-    item.classList.add("visible");
+  revealItems.forEach(function (item) { item.classList.add("visible"); });
+}
+
+/* ---- 4. HEADLINE REVEAL ------------------------------------
+   Any element with class="split-in" gets its text chopped into
+   words, and each word slides up one after the other.
+   ------------------------------------------------------------ */
+document.querySelectorAll(".split-in").forEach(function (heading) {
+  if (reducedMotion) return;
+
+  /* Walk the child nodes so coloured <span> parts keep their colour. */
+  var pieces = [];
+  heading.childNodes.forEach(function (node) {
+    var text = (node.textContent || "").trim();
+    if (!text) return;
+    var className = node.nodeType === 1 ? node.className : "";
+    text.split(/\s+/).forEach(function (word) {
+      pieces.push({ word: word, className: className });
+    });
+  });
+
+  if (!pieces.length) return;
+
+  heading.innerHTML = pieces
+    .map(function (piece) {
+      var cls = piece.className ? ' class="' + piece.className + '"' : "";
+      return '<span class="word"><span' + cls + ">" + piece.word + "</span></span>";
+    })
+    .join(" ");
+});
+
+/* ---- 5. COUNTING NUMBERS -----------------------------------
+   Put data-count="200" on an element and it counts up from zero
+   when it scrolls into view. Add data-suffix="+" for the plus.
+   Years like 2009 are left alone, see data-count="none".
+   ------------------------------------------------------------ */
+var counters = document.querySelectorAll("[data-count]");
+
+if ("IntersectionObserver" in window && !reducedMotion) {
+  var countWatcher = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        countWatcher.unobserve(entry.target);
+
+        var el = entry.target;
+        var target = parseInt(el.getAttribute("data-count"), 10);
+        var suffix = el.getAttribute("data-suffix") || "";
+        if (isNaN(target)) return;
+
+        var duration = 1400;
+        var started = null;
+
+        var step = function (now) {
+          if (!started) started = now;
+          var p = Math.min((now - started) / duration, 1);
+          /* ease out, fast at first then settles */
+          var eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(target * eased) + suffix;
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      });
+    },
+    { threshold: 0.5 }
+  );
+  counters.forEach(function (el) { countWatcher.observe(el); });
+}
+
+/* ---- 6. MOUSE PARALLAX -------------------------------------
+   Anything with class="parallax" drifts a little as the mouse
+   moves. data-parallax="0.04" controls how far it moves.
+   Skipped on touch screens, where there is no mouse.
+   ------------------------------------------------------------ */
+var parallaxItems = document.querySelectorAll(".parallax");
+var hasMouse = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+if (parallaxItems.length && hasMouse && !reducedMotion) {
+  var pointerX = 0;
+  var pointerY = 0;
+  var queued = false;
+
+  window.addEventListener("mousemove", function (e) {
+    pointerX = e.clientX / window.innerWidth - 0.5;
+    pointerY = e.clientY / window.innerHeight - 0.5;
+
+    if (queued) return;
+    queued = true;
+
+    requestAnimationFrame(function () {
+      parallaxItems.forEach(function (el) {
+        var strength = parseFloat(el.getAttribute("data-parallax")) || 0.03;
+        var x = pointerX * strength * 240;
+        var y = pointerY * strength * 240;
+        el.style.transform = "translate3d(" + x + "px," + y + "px,0)";
+      });
+      queued = false;
+    });
   });
 }
 
-/* ---- 3. FOOTER YEAR ---------------------------------------
-   Writes the current year so nobody has to update the footer
-   every January.
+/* ---- 7. LOGO FALLBACK --------------------------------------
+   Until img/logo.png exists, show the team name as text instead
+   of a broken image icon.
    ------------------------------------------------------------ */
+document.querySelectorAll(".logo-img, .footer-logo").forEach(function (img) {
+  var swapForText = function () {
+    var text = document.createElement("span");
+    text.className = img.classList.contains("footer-logo")
+      ? "display h-md"
+      : "logo-name";
+    text.textContent = "NACI Robotics";
+    text.style.letterSpacing = "0.06em";
+    img.replaceWith(text);
+  };
+
+  img.addEventListener("error", swapForText);
+
+  /* The image may have already failed before this script ran, in
+     which case the error event is long gone. Check for that too. */
+  if (img.complete && img.naturalWidth === 0) swapForText();
+});
+
+/* ---- 8. FOOTER YEAR ---------------------------------------- */
 var yearSpot = document.querySelector("[data-year]");
 if (yearSpot) {
   yearSpot.textContent = new Date().getFullYear();
