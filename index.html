@@ -38,7 +38,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600&family=Orbitron:wght@600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 
@@ -122,7 +122,6 @@
   <section>
     <div class="wrap split">
       <div class="reveal">
-        <p class="section-no">01</p>
         <h2 class="display h-xl mt-2">Who<br>We Are</h2>
       </div>
       <div class="reveal">
@@ -143,24 +142,32 @@
   </section>
 
   <section class="band-dark">
+    <div class="stats-watermark">2935</div>
     <div class="wrap">
-      <p class="section-no reveal">By the numbers</p>
-      <div class="grid g-4 mt-4 reveal reveal-group">
-        <div>
-          <p class="stat-num" data-count="200" data-suffix="+">0</p>
-          <p class="eyebrow mt-1">Members and alumni</p>
+      <div class="stats-head reveal">
+        <p class="eyebrow hot">By the numbers</p>
+        <p class="eyebrow">Since 2009</p>
+      </div>
+      <div class="stat-row reveal">
+        <div class="stat">
+          <span class="stat-num" data-count="200" data-suffix="+">0</span>
+          <span class="stat-label">Members and alumni</span>
+          <span class="stat-bar"></span>
         </div>
-        <div>
-          <p class="stat-num">2009</p>
-          <p class="eyebrow mt-1">Rookie year</p>
+        <div class="stat">
+          <span class="stat-num">2009</span>
+          <span class="stat-label">Rookie year</span>
+          <span class="stat-bar"></span>
         </div>
-        <div>
-          <p class="stat-num" data-count="15">0</p>
-          <p class="eyebrow mt-1">FRC seasons</p>
+        <div class="stat">
+          <span class="stat-num" data-count="15">0</span>
+          <span class="stat-label">FRC seasons</span>
+          <span class="stat-bar"></span>
         </div>
-        <div>
-          <p class="stat-num" data-count="18">0</p>
-          <p class="eyebrow mt-1">Awards won</p>
+        <div class="stat">
+          <span class="stat-num" data-count="18">0</span>
+          <span class="stat-label">Awards won</span>
+          <span class="stat-bar"></span>
         </div>
       </div>
     </div>
@@ -169,30 +176,56 @@
   <section>
     <div class="wrap">
       <div class="head-row reveal">
-        <div>
-          <p class="section-no">02</p>
-          <h2 class="display h-xl mt-2">Azure</h2>
-          <p class="eyebrow hot mt-1">2025 &nbsp;/&nbsp; Reefscape &nbsp;/&nbsp; Houston, Texas</p>
-        </div>
+        <h2 class="display h-xl">Our Robots</h2>
         <a href="robots.html" class="link-line">All our robots</a>
       </div>
 
-      <div class="split-even mt-4">
-        <div class="photo wide reveal parallax" data-parallax="0.02">
-          <span class="eyebrow">Azure, 2025 robot</span>
+      <div class="slider mt-4 reveal" data-interval="4500">
+        <div class="slide is-active">
+          <div class="split-even">
+            <div class="photo wide"><span class="eyebrow">Placeholder</span></div>
+            <div class="slide-body">
+              <p class="eyebrow hot">2025 &nbsp;/&nbsp; Reefscape</p>
+              <h3 class="display h-lg mt-1">Azure</h3>
+              <p class="mt-2">
+                Azure took us through the Ontario district season and on to the
+                FIRST World Championship in Houston, Texas.
+              </p>
+              <ul class="ruled mt-3">
+                <li>District Finalist, Humber Polytechnic Event</li>
+                <li>Quality Award, Humber Polytechnic Event</li>
+                <li>3rd Place, North Bay Event</li>
+                <li>Qualified for Houston, Texas Championship</li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="reveal">
-          <p>
-            Our 2025 robot for the REEFSCAPE game. Azure took us through the
-            Ontario district season and on to the FIRST World Championship in
-            Houston, Texas.
-          </p>
-          <ul class="ruled mt-3">
-            <li>District Finalist, Humber Polytechnic Event</li>
-            <li>Quality Award, Humber Polytechnic Event</li>
-            <li>3rd Place, North Bay Event</li>
-            <li>Qualified for Houston, Texas Championship</li>
-          </ul>
+
+        <div class="slide">
+          <div class="split-even">
+            <div class="photo wide"><span class="eyebrow">Placeholder</span></div>
+            <div class="slide-body">
+              <p class="eyebrow hot">2024 &nbsp;/&nbsp; Crescendo</p>
+              <h3 class="display h-lg mt-1">Crescendo</h3>
+              <p class="mt-2">
+                Our 2024 build, which picked up awards for both autonomous
+                performance and design creativity across the district season.
+              </p>
+              <ul class="ruled mt-3">
+                <li>Autonomous Award, Durham College Event</li>
+                <li>Creativity Award, North Bay Event</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="slider-nav">
+          <button class="dot is-active" type="button" aria-label="Show 2025 robot">
+            <i></i><span class="dot-year">2025</span>
+          </button>
+          <button class="dot" type="button" aria-label="Show 2024 robot">
+            <i></i><span class="dot-year">2024</span>
+          </button>
         </div>
       </div>
     </div>
@@ -202,7 +235,6 @@
     <div class="wrap">
       <div class="head-row reveal">
         <div>
-          <p class="section-no">03</p>
           <h2 class="display h-xl mt-2">Beyond<br>The Build</h2>
         </div>
         <a href="outreach.html" class="link-line">See our outreach</a>
@@ -240,7 +272,6 @@
   <section>
     <div class="wrap split">
       <div class="reveal">
-        <p class="section-no">04</p>
         <h2 class="display h-xl mt-2">What<br>Is FIRST</h2>
         <a href="https://www.firstinspires.org/robotics/frc" target="_blank" rel="noopener noreferrer" class="link-line mt-3">firstinspires.org</a>
       </div>
@@ -265,7 +296,6 @@
 
   <section class="band-grey">
     <div class="wrap">
-      <p class="section-no reveal">05</p>
       <h2 class="display h-xl mt-2 narrow split-in">Robots Need <span class="accent">Builders</span></h2>
       <p class="lead mt-3 reveal">
         Love STEM, media, or business? Our robotics team is more than just
@@ -282,29 +312,57 @@
 
 <footer class="site-footer">
   <div class="wrap">
-    <div class="footer-grid">
-      <div>
+    <div class="footer-cta">
+      <a href="contact.html" class="footer-cta-link">
+        <span class="swap">Let&rsquo;s build<br>something</span>
+        <svg class="arrow" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <path d="M10 38 38 10M16 10h22v22" stroke="currentColor" stroke-width="4" stroke-linecap="square"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="footer-cols">
+      <div class="footer-brand">
         <img src="img/logo.png" alt="NACI Robotics" class="footer-logo">
-        <h2 class="display h-lg mt-3">Students.<br>Mentors.<br>Sponsors.</h2>
-        <a href="contact.html" class="btn btn-main mt-3">Contact us</a>
+        <p>FIRST Robotics Competition Team 2935 at North Albion Collegiate Institute, Rexdale, Ontario. Competing since 2009.</p>
       </div>
-      <div>
-        <p class="eyebrow">Find us</p>
-        <ul class="footer-list">
-          <li><a href="mailto:naci@2935.ca">naci@2935.ca</a></li>
-          <li><a href="https://www.instagram.com/nacirobotics" target="_blank" rel="noopener noreferrer">Instagram @nacirobotics</a></li>
-          <li>2580 Kipling Ave<br>Etobicoke, ON M9V 3B2</li>
+
+      <div class="footer-col">
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="about.html" class="footer-link">About us</a></li>
+          <li><a href="robots.html" class="footer-link">Our robots</a></li>
+          <li><a href="outreach.html" class="footer-link">Outreach</a></li>
+          <li><a href="sponsors.html" class="footer-link">Sponsors</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Connect</h3>
+        <ul>
+          <li><a href="mailto:naci@2935.ca" class="footer-link">naci@2935.ca</a></li>
+          <li><a href="https://www.instagram.com/nacirobotics" target="_blank" rel="noopener noreferrer" class="footer-link">@nacirobotics</a></li>
+          <li><a href="contact.html" class="footer-link">Contact form</a></li>
+          <li><a href="events.html" class="footer-link">Events</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Visit</h3>
+        <ul>
+          <li><a href="https://maps.google.com/?q=2580+Kipling+Ave+Etobicoke+ON+M9V+3B2" target="_blank" rel="noopener noreferrer" class="footer-link">2580 Kipling Ave<br>Etobicoke, ON M9V 3B2</a></li>
         </ul>
       </div>
     </div>
 
-    <div class="footer-ghost">2935</div>
-
     <div class="footer-bottom">
-      <p class="eyebrow">North Albion Collegiate Institute</p>
       <p class="eyebrow">&copy; <span data-year>2026</span> NACI Robotics</p>
+      <p class="eyebrow">FRC Team 2935</p>
+      <p class="eyebrow">North Albion Collegiate Institute</p>
     </div>
   </div>
+
+  <div class="footer-wordmark">2935</div>
 </footer>
 
 <script src="js/main.js"></script>
