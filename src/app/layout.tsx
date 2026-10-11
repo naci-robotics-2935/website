@@ -1,20 +1,33 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Sora, Manrope, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import site from "@content/site.json";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
+const sora = Sora({
+  variable: "--font-sora",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+});
+const manrope = Manrope({
+  variable: "--font-manrope",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+});
+const jetbrains = JetBrains_Mono({
+  variable: "--font-jetbrains",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.siteUrl),
   title: {
-    default: `${site.teamName} | FRC Team ${site.teamNumber}`,
+    default: `${site.teamName} | Team ${site.teamNumber} | FIRST Robotics Competition`,
     template: `%s | ${site.teamName} ${site.teamNumber}`,
   },
-  description: site.shortDescription,
+  description: site.intro,
   keywords: [
     "FRC",
     `Team ${site.teamNumber}`,
@@ -28,28 +41,31 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_CA",
     url: site.siteUrl,
-    siteName: `${site.teamName} | FRC ${site.teamNumber}`,
-    title: `${site.teamName} | FRC Team ${site.teamNumber}`,
-    description: site.shortDescription,
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: `${site.teamName} | FRC Team ${site.teamNumber}`,
-    description: site.shortDescription,
+    siteName: `${site.teamName} | Team ${site.teamNumber}`,
+    title: `${site.teamName} | Team ${site.teamNumber}`,
+    description: site.intro,
   },
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },
 };
 
-/* Tells Google this is a real organization, which helps it show the
-   team properly in search results. */
 const orgSchema = {
   "@context": "https://schema.org",
   "@type": "SportsTeam",
   name: `${site.teamName} (FRC Team ${site.teamNumber})`,
   sport: "FIRST Robotics Competition",
   url: site.siteUrl,
-  description: site.shortDescription,
+  email: site.email,
+  foundingDate: site.foundedYear,
+  description: site.about,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "2580 Kipling Ave",
+    addressLocality: "Etobicoke",
+    addressRegion: "ON",
+    postalCode: "M9V 3B2",
+    addressCountry: "CA",
+  },
   memberOf: { "@type": "Organization", name: "FIRST Robotics Competition" },
 };
 
@@ -57,9 +73,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${sora.variable} ${manrope.variable} ${jetbrains.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col font-sans">
+      <body className="flex min-h-full flex-col">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}

@@ -1,42 +1,78 @@
 @import "tailwindcss";
 
 /* ===========================================================
-   SITE COLORS. Change these to rebrand. Everything reads
-   from these values, so you only edit them here.
+   SITE TOKENS. Change these to rebrand the whole site.
    =========================================================== */
 :root {
-  --background: #ffffff;   /* page background */
-  --surface: #f5f6f8;      /* cards, alternating sections */
-  --foreground: #16181d;   /* main text */
-  --muted: #5c636e;        /* secondary text */
-  --accent: #1a4fa0;       /* links, buttons (team blue) */
-  --accent-strong: #143d7d; /* button hover */
-  --border: #e2e5ea;       /* hairlines */
+  --background: #141311;
+  --surface: #1c1b19;
+  --surface-raised: #242321;
+  --foreground: #f2f0ed;
+  --muted: #a3a09a;
+  --faint: #6f6c66;
+  --accent: #4f8cff;
+  --accent-soft: #9dbdff;
+  --border: #2b2926;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
+  --color-faint: var(--faint);
   --color-accent: var(--accent);
-  --color-accent-strong: var(--accent-strong);
+  --color-accent-soft: var(--accent-soft);
   --color-border: var(--border);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-sora);
+  --font-sans: var(--font-manrope);
+  --font-mono: var(--font-jetbrains);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+  font-family: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  line-height: 1.7;
 }
 
-/* Highlights content that still has a TODO placeholder, so unfinished
-   text is obvious while editing and easy to find before launch. */
+/* Display headings. Big, medium weight, tight leading and tracking. */
+.display {
+  font-family: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 500;
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+}
+
+/* Small uppercase mono label that sits above a heading. */
+.eyebrow {
+  font-family: var(--font-jetbrains), ui-monospace, monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+/* Stand-in for a photo that has not been added yet. */
+.placeholder {
+  background:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      color-mix(in srgb, var(--border) 60%, transparent) 10px,
+      color-mix(in srgb, var(--border) 60%, transparent) 20px
+    ),
+    var(--surface);
+  border: 1px solid var(--border);
+}
+
 .todo {
-  color: #8a5a00;
-  background: #fff6e0;
-  border: 1px dashed #e0b355;
+  color: var(--accent-soft);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  border: 1px dashed color-mix(in srgb, var(--accent) 40%, transparent);
   border-radius: 0.25rem;
   padding: 0 0.3rem;
   font-size: 0.85em;
