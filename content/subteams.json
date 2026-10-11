@@ -1,8 +1,0 @@
-[
-  { "name": "Mechanical", "description": "CAD, fabrication, and assembly. Turns a game strategy into a machine that survives competition." },
-  { "name": "Electrical", "description": "Wiring, motor controllers, pneumatics, and sensors. Keeps the robot powered and talking to the code." },
-  { "name": "Programming", "description": "Autonomous routines, driver controls, and vision. Written in Java on the roboRIO." },
-  { "name": "Drive Team", "description": "Driver, operator, and human player. Practices for hours so the robot performs under pressure." },
-  { "name": "Media", "description": "Photo, video, social media, and this website. Tells the team's story." },
-  { "name": "Business", "description": "Sponsorship outreach, fundraising, budgeting, and awards submissions." }
-]

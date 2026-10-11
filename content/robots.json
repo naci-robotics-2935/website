@@ -1,26 +1,28 @@
-[
-  {
-    "year": "2026",
-    "name": "TODO: robot name",
-    "game": "TODO: FRC 2026 game name",
-    "image": "",
-    "summary": "TODO: one paragraph on what this robot did: drivetrain, scoring mechanism, and what you were proud of.",
-    "highlights": ["TODO: key spec or achievement", "TODO: key spec or achievement"]
-  },
-  {
-    "year": "2025",
-    "name": "TODO: robot name",
-    "game": "REEFSCAPE",
-    "image": "",
-    "summary": "TODO: one paragraph about this robot.",
-    "highlights": ["TODO: key spec or achievement"]
-  },
-  {
-    "year": "2024",
-    "name": "TODO: robot name",
-    "game": "CRESCENDO",
-    "image": "",
-    "summary": "TODO: one paragraph about this robot.",
-    "highlights": ["TODO: key spec or achievement"]
-  }
-]
+{
+  "heading": "Robots Over the Years",
+  "subheading": "View all of our robots since 2020",
+  "robots": [
+    {
+      "year": "2025",
+      "name": "Azure",
+      "game": "REEFSCAPE",
+      "image": "",
+      "awards": [
+        "District Finalist, Humber Polytechnic Event",
+        "Quality Award, Humber Polytechnic Event",
+        "3rd Place, North Bay Event",
+        "Qualified for Houston, Texas Championship"
+      ]
+    },
+    {
+      "year": "2024",
+      "name": "",
+      "game": "CRESCENDO",
+      "image": "",
+      "awards": [
+        "Autonomous Award, Durham College Event",
+        "Creativity Award, North Bay Event"
+      ]
+    }
+  ]
+}

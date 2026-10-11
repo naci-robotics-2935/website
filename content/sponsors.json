@@ -1,23 +1,36 @@
 {
-  "intro": "Our season is only possible because of the organizations that back us. Sponsorship pays for parts, registration, and travel, and it puts engineering tools in the hands of students who would not otherwise have them.",
-  "tiers": [
+  "heading": "Our Sponsors",
+  "subheading": "NACI Robotics thanks its sponsors for their important and continuous support to keep the team running",
+  "sponsors": [
     {
-      "name": "Lead Sponsors",
-      "sponsors": [
-        { "name": "TODO: sponsor name", "logo": "", "url": "" }
-      ]
+      "name": "The Rexdale Community Hub",
+      "logo": "",
+      "description": "The Rexdale Community Hub is our primary sponsor and our biggest supporter. The Hub's Makerspace has streamlined our robot fabrication and the 3D printing resources that they make accessible to our students has proven to be invaluable to our design and robot build process, contributing significantly to our success this year."
     },
     {
-      "name": "Supporting Sponsors",
-      "sponsors": [
-        { "name": "TODO: sponsor name", "logo": "", "url": "" }
-      ]
+      "name": "Endava",
+      "logo": "",
+      "description": "Endava's generous donation allowed us to buy parts, tools and other equipment for our robot. Additionally, we are also fortunate to have 2 technical mentors from Endava that have spent much of their time and hard work teaching students skills, strategy, programming, CAD, 3D printing and more."
     },
     {
-      "name": "Community Partners",
-      "sponsors": [
-        { "name": "TODO: partner name", "logo": "", "url": "" }
-      ]
+      "name": "The Rexdale Community Health Centre",
+      "logo": "",
+      "description": "The Rexdale Community Health Centre has generously helped our team this season by covering many expenses during our stay in Houston, Texas for the FIRST World Championship."
+    },
+    {
+      "name": "Toronto District School Board",
+      "logo": "",
+      "description": "The Toronto District School Board is one of our longest-standing sponsors and has helped our team by paying for registration and travel costs to the FIRST Robotics World Championship."
+    },
+    {
+      "name": "Rotary Club of Etobicoke",
+      "logo": "",
+      "description": "The Rotary Club of Etobicoke is another generous sponsor that has helped our team through monetary support that helped us buy parts needed for the robot and other tools and supplies for manufacturing."
+    },
+    {
+      "name": "Lord of Robots",
+      "logo": "",
+      "description": "Lord of Robots helped out our team by educating students with skill workshops such as 3D printing, has encouraged problem solving skills through MiniBots, and helped transport our robot to and from competitions."
     }
   ]
 }

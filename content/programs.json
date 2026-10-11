@@ -1,0 +1,64 @@
+{
+  "heading": "More Outreach",
+  "programs": [
+    {
+      "id": "hacknights",
+      "title": "HackNights",
+      "question": "What are HackNights?",
+      "image": "",
+      "sections": [
+        {
+          "heading": "What Are HackNights?",
+          "body": "HackNights are fun, hands-on build events where students team up to tackle creative engineering challenges. Each week brings a brand new activity, from building spaghetti towers to designing rubber band powered cars or crafting parachutes. Students work together to brainstorm, plan, and build, developing problem-solving, teamwork, and communication skills in a supportive, interactive environment."
+        },
+        {
+          "heading": "Learning Through Doing",
+          "body": "HackNights help students build a strong foundation in engineering, design, and critical thinking while fostering creativity and curiosity. By practicing problem-solving every week, students gain confidence and develop skills that prepare them for bigger challenges like Minibots, FLL, and eventually FRC. These sessions make learning hands-on, engaging, and fun, encouraging students to explore, experiment, and innovate."
+        }
+      ]
+    },
+    {
+      "id": "fll",
+      "title": "FIRST LEGO League",
+      "question": "What is FLL?",
+      "image": "",
+      "sections": [
+        {
+          "heading": "FIRST LEGO League",
+          "body": "FIRST LEGO League (FLL) is a robotics competition for students, usually ages 9 to 16. Teams build and program LEGO robots to complete missions on a themed field, and they also work on an Innovation Project to solve a real-world problem. The game is fully autonomous, meaning the bot runs on its own, which is why consistency is key."
+        }
+      ],
+      "skills": [
+        { "group": "STEM & Technical Skills", "items": [
+          "Programming: You learn to code LEGO robots using software like LEGO Spike or EV3.",
+          "Engineering & Design: You design, build, and test robots to complete missions.",
+          "Problem Solving: You figure out how to make your robot do tasks efficiently.",
+          "Critical Thinking: You improve your design each time something doesn't work."
+        ]},
+        { "group": "Soft Skills", "items": [
+          "Teamwork: You work with others to share ideas.",
+          "Communication: You explain your ideas to judges and teammates clearly.",
+          "Creativity: You invent new solutions for real problems in your Innovation Project.",
+          "Time Management: You plan, test, and present all before competition day.",
+          "Resilience: You learn to keep going even when your robot fails."
+        ]}
+      ]
+    },
+    {
+      "id": "minibots",
+      "title": "MiniBots",
+      "question": "What are MiniBots?",
+      "image": "",
+      "sections": [
+        {
+          "heading": "What Are MiniBots?",
+          "body": "The MiniBot Competition is an exciting multi-week robotics program that challenges high school students aged 14 to 18 to design, build, and compete with their own custom MiniBots. Modeled after the FIRST Robotics Competition, it combines creativity, strategy, and engineering in dynamic 2 vs 2 matches. Participants gain valuable hands-on experience, enhance teamwork and problem-solving skills, and showcase their innovation in a fun, competitive environment open to both robotics teams and individual enthusiasts."
+        },
+        {
+          "heading": "The Focus",
+          "body": "Each MiniBot is designed and produced by Lord of Robots, a company focused on making robotics education simple, fun, and accessible for everyone. These MiniBots are engineered to be both powerful and easy to build, using durable components and intuitive controls that allow students to start building right away."
+        }
+      ]
+    }
+  ]
+}

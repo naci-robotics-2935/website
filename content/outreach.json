@@ -1,30 +1,21 @@
 {
-  "intro": "Competing is half of what we do. The rest is making sure robotics does not stop at our build room door.",
-  "programs": [
+  "heading": "Our Outreach",
+  "subheading": "Read more about our team's outreach here",
+  "events": [
     {
-      "title": "School Demos",
-      "description": "We bring the robot into classrooms and assemblies so students can drive it themselves. For a lot of them it is the first time engineering looks like something they could actually do.",
-      "image": ""
+      "title": "Science Rendezvous",
+      "image": "",
+      "description": "The Science Rendezvous is one of our most significant annual outreach events. This year's event provided parents and youth with an opportunity to explore the diverse components of our program at NACI Robotics. Here, they learned about our team's upcoming First Lego League event, controlled the Minibots created by Lord of Robots, and played with Azure, our 2025 FIRST Robotics Competition season robot from the REEFSCAPE game, which successfully advanced to the World Championships."
     },
     {
-      "title": "Workshops",
-      "description": "Hands-on sessions on CAD, wiring, and programming, run by students for students.",
-      "image": ""
+      "title": "Ribfest",
+      "image": "",
+      "description": "We had a fantastic day representing NACI Robotics at the Rotary Club's annual Ribfest. This community event provided a perfect platform to spread information about our initiatives and, more importantly, to create positive, memorable connections with the local youth. Our presentation and robot were so engaging that we almost forgot about the delicious food! It was a great success and left many who attended the event well informed about STEM and other important skills."
     },
     {
-      "title": "Mentoring",
-      "description": "We support newer and younger teams in our area with build advice, spare parts, and competition help.",
-      "image": ""
-    },
-    {
-      "title": "Community Events",
-      "description": "TODO: describe the community events the team shows up to.",
-      "image": ""
+      "title": "West Humber Junior Middle School",
+      "image": "",
+      "description": "NACI Robotics was excited to attend the Open House at West Humber Junior Middle School. We truly enjoyed the opportunity to share exciting information about our robotics program at NACI. And most importantly, creating fun and inspiring memories for the enthusiastic youth in the local community. It was a fantastic day connecting with future leaders who share a passion for STEM!"
     }
-  ],
-  "stats": [
-    { "value": "30+", "label": "Students on the team" },
-    { "value": "TODO", "label": "Students reached through outreach" },
-    { "value": "TODO", "label": "Events attended" }
   ]
 }

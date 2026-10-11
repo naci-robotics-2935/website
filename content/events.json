@@ -1,16 +1,7 @@
-[
-  {
-    "name": "Ontario District Event",
-    "date": "TODO: add date",
-    "location": "TODO: add venue",
-    "status": "upcoming",
-    "description": "TODO: short description of the event and how the team did or expects to do."
-  },
-  {
-    "name": "Humber Polytechnic Event",
-    "date": "TODO: add date",
-    "location": "Humber Polytechnic, Toronto, ON",
-    "status": "upcoming",
-    "description": "TODO: short description."
-  }
-]
+{
+  "heading": "Upcoming events & meetings",
+  "events": [
+    { "name": "Ontario District", "date": "", "location": "" },
+    { "name": "Humber Polytechnic Event", "date": "", "location": "" }
+  ]
+}
