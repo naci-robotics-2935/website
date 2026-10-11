@@ -1,74 +1,58 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Container from "@/components/Container";
+import Eyebrow from "@/components/Eyebrow";
 import PageHeader from "@/components/PageHeader";
-import { Text, isTodo } from "@/components/Todo";
+import Placeholder from "@/components/Placeholder";
 import sponsors from "@content/sponsors.json";
 import site from "@content/site.json";
 
 export const metadata: Metadata = {
   title: "Sponsors",
-  description: `The organizations that make ${site.teamName}'s season possible, and how your company can support FRC Team ${site.teamNumber}.`,
+  description: sponsors.subheading,
 };
 
 export default function Sponsors() {
   return (
     <>
-      <PageHeader title="Our Sponsors" intro={sponsors.intro} />
+      <PageHeader
+        eyebrow="Our sponsors"
+        title={sponsors.heading}
+        intro={sponsors.subheading}
+      />
 
-      <section className="py-16">
-        <Container className="space-y-12">
-          {sponsors.tiers.map((tier) => (
-            <div key={tier.name}>
-              <h2 className="text-sm font-semibold uppercase tracking-widest text-accent">
-                {tier.name}
-              </h2>
-              <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {tier.sponsors.map((sponsor, i) => (
-                  <div
-                    key={i}
-                    className="flex min-h-24 items-center justify-center rounded-lg border border-border bg-surface p-6 text-center"
-                  >
-                    {isTodo(sponsor.name) ? (
-                      <span className="todo">{sponsor.name}</span>
-                    ) : sponsor.url ? (
-                      <a
-                        href={sponsor.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-semibold text-accent hover:underline"
-                      >
-                        {sponsor.name}
-                      </a>
-                    ) : (
-                      <span className="font-semibold">{sponsor.name}</span>
-                    )}
-                  </div>
-                ))}
+      <section className="border-b border-border py-20">
+        <Container className="space-y-16">
+          {sponsors.sponsors.map((sponsor) => (
+            <article
+              key={sponsor.name}
+              className="grid gap-8 border-b border-border pb-16 last:border-0 last:pb-0 lg:grid-cols-[280px_1fr]"
+            >
+              <Placeholder label={`${sponsor.name} logo`} ratio="16/9" />
+              <div>
+                <h2 className="display text-2xl">{sponsor.name}</h2>
+                <p className="mt-4 text-muted">{sponsor.description}</p>
               </div>
-            </div>
+            </article>
           ))}
         </Container>
       </section>
 
-      <section className="border-t border-border bg-surface py-16">
+      <section className="py-20">
         <Container className="max-w-3xl">
-          <h2 className="text-2xl font-bold tracking-tight">
-            Become A Sponsor
+          <Eyebrow>Support the team</Eyebrow>
+          <h2 className="display mt-4 text-3xl sm:text-4xl">
+            Become a sponsor
           </h2>
-          <p className="mt-4 leading-relaxed text-muted">
-            Sponsoring {site.teamName} puts your name in front of our school
-            and community, and it directly funds students learning engineering.
-            We can put together a package that fits any budget.
-          </p>
-          <p className="mt-4 text-sm text-muted">
-            Contact: <Text value={site.email} />
+          <p className="mt-6 text-muted">
+            Sponsorship keeps {site.teamName} running. If your organization
+            would like to support the team, get in touch at {site.email}.
           </p>
           <Link
             href="/contact"
-            className="mt-6 inline-block rounded bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent-strong"
+            className="mt-8 inline-block rounded-full bg-accent px-6 py-2.5 text-sm font-medium text-background transition-opacity hover:opacity-90"
           >
-            Talk To Us
+            Contact us
           </Link>
         </Container>
       </section>

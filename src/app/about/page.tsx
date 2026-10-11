@@ -1,89 +1,89 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Container from "@/components/Container";
+import Eyebrow from "@/components/Eyebrow";
 import PageHeader from "@/components/PageHeader";
-import { Text } from "@/components/Todo";
+import Placeholder from "@/components/Placeholder";
 import site from "@content/site.json";
-import subteams from "@content/subteams.json";
+import mission from "@content/mission.json";
+import stats from "@content/stats.json";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: `Who we are: ${site.teamName}, FRC Team ${site.teamNumber} from ${site.schoolName} in ${site.location}.`,
+  description: mission.body,
 };
 
 export default function About() {
   return (
     <>
-      <PageHeader title="About Us" intro={site.shortDescription} />
+      <PageHeader
+        eyebrow={`About ${site.teamName}`}
+        title="Discover more about our team and the work we do"
+      />
 
-      <section className="py-16">
-        <Container className="grid gap-10 lg:grid-cols-3">
-          <div className="lg:col-span-2">
-            <h2 className="text-2xl font-bold tracking-tight">Our Story</h2>
-            <p className="mt-4 leading-relaxed text-muted">
-              <Text value={site.foundedYear} />. TODO: write two or three
-              paragraphs on the team history. How the team started at{" "}
-              {site.schoolName}, how it has grown, what you are proud of, and
-              what the team is like to be part of.
-            </p>
-            <p className="mt-4 leading-relaxed text-muted">
-              TODO: second paragraph. This is a good place to mention awards,
-              memorable seasons, or how many students have gone on to study
-              engineering.
-            </p>
+      <section className="border-b border-border py-20">
+        <Container className="grid gap-12 lg:grid-cols-[1fr_1.3fr]">
+          <div>
+            <Eyebrow>{mission.heading}</Eyebrow>
+            <h2 className="display mt-4 text-3xl sm:text-4xl">
+              {mission.subheading}
+            </h2>
+            <ul className="mt-8 space-y-2">
+              {mission.pillars.map((pillar) => (
+                <li key={pillar} className="eyebrow text-muted">
+                  {pillar}
+                </li>
+              ))}
+            </ul>
           </div>
-
-          <aside className="rounded-lg border border-border bg-surface p-6">
-            <h2 className="font-semibold">Team At A Glance</h2>
-            <dl className="mt-4 space-y-3 text-sm">
-              <div>
-                <dt className="text-muted">Team Number</dt>
-                <dd className="font-semibold">{site.teamNumber}</dd>
-              </div>
-              <div>
-                <dt className="text-muted">School</dt>
-                <dd className="font-semibold">{site.schoolName}</dd>
-              </div>
-              <div>
-                <dt className="text-muted">Location</dt>
-                <dd className="font-semibold">{site.location}</dd>
-              </div>
-              <div>
-                <dt className="text-muted">Members</dt>
-                <dd className="font-semibold">{site.memberCount}</dd>
-              </div>
-              <div>
-                <dt className="text-muted">Founded</dt>
-                <dd className="font-semibold">
-                  <Text value={site.foundedYear} />
-                </dd>
-              </div>
-            </dl>
-          </aside>
+          <p className="text-muted">{mission.body}</p>
         </Container>
       </section>
 
-      <section className="border-t border-border bg-surface py-16">
+      <section className="border-b border-border py-20">
         <Container>
-          <h2 className="text-2xl font-bold tracking-tight">Our Subteams</h2>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {subteams.map((team) => (
-              <div
-                key={team.name}
-                className="rounded-lg border border-border bg-background p-6"
-              >
-                <h3 className="font-semibold">{team.name}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">
-                  {team.description}
-                </p>
+          <Eyebrow>By the numbers</Eyebrow>
+          <dl className="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+            {stats.map((stat) => (
+              <div key={stat.label}>
+                <dt className="display text-4xl text-accent sm:text-5xl">
+                  {stat.value}
+                </dt>
+                <dd className="mt-3 text-sm text-muted">{stat.label}</dd>
               </div>
             ))}
+          </dl>
+        </Container>
+      </section>
+
+      <section className="border-b border-border py-20">
+        <Container className="grid gap-12 lg:grid-cols-2">
+          <div>
+            <Eyebrow>Compliance</Eyebrow>
+            <h2 className="display mt-4 text-3xl">Lab safety</h2>
+          </div>
+          <p className="text-muted">{mission.compliance}</p>
+        </Container>
+      </section>
+
+      <section className="py-20">
+        <Container>
+          <Eyebrow>Our team</Eyebrow>
+          <h2 className="display mt-4 text-3xl sm:text-4xl">
+            Our team members
+          </h2>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {["Team photo", "Subteam photo", "Subteam photo", "Mentors"].map(
+              (label, i) => (
+                <Placeholder key={i} label={label} ratio="1/1" />
+              ),
+            )}
           </div>
           <Link
             href="/about/robots"
-            className="mt-8 inline-block text-sm font-semibold text-accent hover:underline"
+            className="mt-10 inline-block text-sm text-accent transition-opacity hover:opacity-80"
           >
-            See our FRC robots &rarr;
+            See our FRC robots
           </Link>
         </Container>
       </section>

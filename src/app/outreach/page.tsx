@@ -1,51 +1,58 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Container from "@/components/Container";
+import Eyebrow from "@/components/Eyebrow";
 import PageHeader from "@/components/PageHeader";
-import { Text } from "@/components/Todo";
+import Placeholder from "@/components/Placeholder";
 import outreach from "@content/outreach.json";
 import site from "@content/site.json";
 
 export const metadata: Metadata = {
   title: "Outreach",
-  description: `How ${site.teamName} brings robotics to students and the wider ${site.location} community.`,
+  description: site.about,
 };
 
 export default function Outreach() {
   return (
     <>
-      <PageHeader title="Outreach" intro={outreach.intro} />
+      <PageHeader
+        eyebrow="Outreach"
+        title={outreach.heading}
+        intro={outreach.subheading}
+      />
 
-      <section className="border-b border-border bg-surface py-12">
-        <Container>
-          <dl className="grid gap-8 sm:grid-cols-3">
-            {outreach.stats.map((stat) => (
-              <div key={stat.label}>
-                <dt className="text-sm text-muted">{stat.label}</dt>
-                <dd className="mt-1 text-3xl font-bold text-accent">
-                  <Text value={stat.value} />
-                </dd>
+      <section className="border-b border-border py-20">
+        <Container className="space-y-20">
+          {outreach.events.map((event, i) => (
+            <article
+              key={event.title}
+              className={`grid gap-10 lg:grid-cols-2 ${
+                i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""
+              }`}
+            >
+              <Placeholder label={`${event.title} photo`} ratio="4/3" />
+              <div>
+                <Eyebrow>Outreach</Eyebrow>
+                <h2 className="display mt-4 text-3xl">{event.title}</h2>
+                <p className="mt-5 text-muted">{event.description}</p>
               </div>
-            ))}
-          </dl>
+            </article>
+          ))}
         </Container>
       </section>
 
-      <section className="py-16">
-        <Container>
-          <h2 className="text-2xl font-bold tracking-tight">What We Do</h2>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2">
-            {outreach.programs.map((program) => (
-              <div
-                key={program.title}
-                className="rounded-lg border border-border p-6"
-              >
-                <h3 className="font-semibold">{program.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">
-                  <Text value={program.description} />
-                </p>
-              </div>
-            ))}
+      <section className="py-20">
+        <Container className="grid gap-12 lg:grid-cols-[1fr_1.3fr]">
+          <div>
+            <Eyebrow>About {site.teamName}</Eyebrow>
+            <Link
+              href="/outreach/more"
+              className="mt-6 inline-block text-sm text-accent transition-opacity hover:opacity-80"
+            >
+              See more outreach
+            </Link>
           </div>
+          <p className="text-muted">{site.about}</p>
         </Container>
       </section>
     </>

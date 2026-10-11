@@ -1,80 +1,82 @@
 import type { Metadata } from "next";
 import Container from "@/components/Container";
+import Eyebrow from "@/components/Eyebrow";
 import PageHeader from "@/components/PageHeader";
-import { Text, isTodo } from "@/components/Todo";
 import site from "@content/site.json";
 
 export const metadata: Metadata = {
   title: "Contact Us",
-  description: `Get in touch with ${site.teamName}, FRC Team ${site.teamNumber}. For students who want to join, for mentors, and for sponsors.`,
+  description: `Get in touch with ${site.teamName}, Team ${site.teamNumber}.`,
 };
 
-/* Set NEXT_PUBLIC_CONTACT_FORM_ENDPOINT in Vercel (and .env.local) to a
-   Formspree form URL to turn the form on. Until then the page shows the
-   team email instead, so it is never a form that silently goes nowhere. */
+/* Set NEXT_PUBLIC_CONTACT_FORM_ENDPOINT in Vercel to a Formspree form URL
+   to turn the form on. Until then the page shows the team email instead,
+   so the form never silently goes nowhere. */
 const FORM_ENDPOINT = process.env.NEXT_PUBLIC_CONTACT_FORM_ENDPOINT;
+
+const FIELD =
+  "mt-1.5 w-full rounded-lg border border-border bg-surface px-3 py-2.5 text-sm text-foreground outline-none transition-colors focus:border-faint";
 
 export default function Contact() {
   return (
     <>
-      <PageHeader
-        title="Contact Us"
-        intro="Whether you are a student who wants to join, a mentor, or a company interested in sponsoring, we would like to hear from you."
-      />
+      <PageHeader eyebrow="Contact us" title="How can we help?" />
 
-      <section className="py-16">
-        <Container className="grid gap-12 lg:grid-cols-2">
+      <section className="py-20">
+        <Container className="grid gap-16 lg:grid-cols-[1fr_1.2fr]">
           <div>
-            <h2 className="text-xl font-bold tracking-tight">Reach Us</h2>
-            <dl className="mt-6 space-y-4 text-sm">
+            <Eyebrow>Reach us</Eyebrow>
+            <dl className="mt-6 space-y-5 text-sm">
               <div>
-                <dt className="font-semibold">Email</dt>
-                <dd className="mt-1 text-muted">
-                  {isTodo(site.email) ? (
-                    <Text value={site.email} />
-                  ) : (
-                    <a
-                      href={`mailto:${site.email}`}
-                      className="text-accent hover:underline"
-                    >
-                      {site.email}
-                    </a>
-                  )}
+                <dt className="text-faint">Email</dt>
+                <dd className="mt-1">
+                  <a
+                    href={`mailto:${site.email}`}
+                    className="text-accent transition-opacity hover:opacity-80"
+                  >
+                    {site.email}
+                  </a>
                 </dd>
               </div>
               <div>
-                <dt className="font-semibold">School</dt>
-                <dd className="mt-1 text-muted">{site.schoolName}</dd>
+                <dt className="text-faint">Instagram</dt>
+                <dd className="mt-1">
+                  <a
+                    href={site.socials.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-accent transition-opacity hover:opacity-80"
+                  >
+                    {site.socials.instagramHandle}
+                  </a>
+                </dd>
               </div>
               <div>
-                <dt className="font-semibold">Location</dt>
-                <dd className="mt-1 text-muted">{site.location}</dd>
+                <dt className="text-faint">Address</dt>
+                <dd className="mt-1 text-muted">{site.address}</dd>
               </div>
             </dl>
           </div>
 
           <div>
-            <h2 className="text-xl font-bold tracking-tight">Send A Message</h2>
             {FORM_ENDPOINT ? (
-              <form
-                action={FORM_ENDPOINT}
-                method="POST"
-                className="mt-6 space-y-4"
-              >
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium">
-                    Name
-                  </label>
-                  <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    required
-                    className="mt-1 w-full rounded border border-border bg-background px-3 py-2 text-sm"
-                  />
+              <form action={FORM_ENDPOINT} method="POST" className="space-y-5">
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <div>
+                    <label htmlFor="firstName" className="text-sm text-muted">
+                      First name
+                    </label>
+                    <input id="firstName" name="firstName" className={FIELD} />
+                  </div>
+                  <div>
+                    <label htmlFor="lastName" className="text-sm text-muted">
+                      Last name
+                    </label>
+                    <input id="lastName" name="lastName" className={FIELD} />
+                  </div>
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium">
+                  <label htmlFor="email" className="text-sm text-muted">
                     Email
                   </label>
                   <input
@@ -82,30 +84,36 @@ export default function Contact() {
                     name="email"
                     type="email"
                     required
-                    className="mt-1 w-full rounded border border-border bg-background px-3 py-2 text-sm"
+                    className={FIELD}
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium">
-                    Message
+                  <label htmlFor="who" className="text-sm text-muted">
+                    Who are you?
+                  </label>
+                  <input id="who" name="who" className={FIELD} />
+                </div>
+                <div>
+                  <label htmlFor="message" className="text-sm text-muted">
+                    Tell us what you need help with
                   </label>
                   <textarea
                     id="message"
                     name="message"
                     rows={5}
                     required
-                    className="mt-1 w-full rounded border border-border bg-background px-3 py-2 text-sm"
+                    className={FIELD}
                   />
                 </div>
                 <button
                   type="submit"
-                  className="rounded bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent-strong"
+                  className="rounded-full bg-accent px-6 py-2.5 text-sm font-medium text-background transition-opacity hover:opacity-90"
                 >
                   Send
                 </button>
               </form>
             ) : (
-              <p className="mt-6 text-sm leading-relaxed">
+              <p className="text-sm">
                 <span className="todo">
                   TODO: the contact form is off until an endpoint is set. Make a
                   free form at formspree.io, then add
