@@ -1,0 +1,347 @@
+/* ============================================================
+   NACI Robotics 2935
+   Every page links to this one file. Change a colour or a font
+   here and it changes everywhere on the site.
+   ============================================================ */
+
+/* ---- 1. COLOURS AND FONTS. Change these to rebrand. -------- */
+:root {
+  --bg: #141311;          /* page background */
+  --surface: #1c1b19;     /* cards and boxes */
+  --raised: #242321;      /* hover state */
+  --text: #f2f0ed;        /* main text */
+  --muted: #a3a09a;       /* paragraphs */
+  --faint: #6f6c66;       /* small labels */
+  --accent: #4f8cff;      /* buttons and links */
+  --line: #2b2926;        /* thin borders */
+
+  --font-display: "Sora", system-ui, sans-serif;
+  --font-body: "Manrope", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --max-width: 1150px;
+  --gutter: 24px;
+}
+
+/* ---- 2. BASE ----------------------------------------------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main { flex: 1; }
+
+a { color: inherit; text-decoration: none; }
+
+img { max-width: 100%; display: block; }
+
+/* ---- 3. BUILDING BLOCKS ------------------------------------ */
+
+/* Keeps content centred and the same width on every page. */
+.wrap {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* Big headings. Medium weight on purpose, bold looks cheap at this size. */
+.display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+}
+
+.h-xl { font-size: clamp(2.6rem, 7vw, 4.5rem); }
+.h-lg { font-size: clamp(2rem, 5vw, 3.2rem); }
+.h-md { font-size: clamp(1.5rem, 3vw, 2.1rem); }
+.h-sm { font-size: 1.25rem; }
+
+/* The small uppercase label that sits above a heading. */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+p { color: var(--muted); }
+.lead { font-size: 1.05rem; max-width: 60ch; }
+.narrow { max-width: 65ch; }
+
+.mt-1 { margin-top: 10px; }
+.mt-2 { margin-top: 18px; }
+.mt-3 { margin-top: 28px; }
+.mt-4 { margin-top: 40px; }
+
+section { padding: 80px 0; border-bottom: 1px solid var(--line); }
+section:last-of-type { border-bottom: 0; }
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 11px 26px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: opacity 0.2s, border-color 0.2s, color 0.2s;
+}
+.btn-main { background: var(--accent); color: var(--bg); }
+.btn-main:hover { opacity: 0.88; }
+.btn-ghost { border: 1px solid var(--line); color: var(--muted); }
+.btn-ghost:hover { border-color: var(--faint); color: var(--text); }
+.btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
+
+.link-accent { color: var(--accent); font-size: 0.9rem; transition: opacity 0.2s; }
+.link-accent:hover { opacity: 0.75; }
+
+/* Grids */
+.grid { display: grid; gap: 24px; }
+.g-2 { grid-template-columns: repeat(2, 1fr); }
+.g-3 { grid-template-columns: repeat(3, 1fr); }
+.g-4 { grid-template-columns: repeat(4, 1fr); }
+.split { display: grid; gap: 48px; grid-template-columns: 1fr 1.3fr; }
+.split-even { display: grid; gap: 48px; grid-template-columns: 1fr 1fr; align-items: center; }
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 28px;
+  transition: border-color 0.25s, background 0.25s, transform 0.25s;
+}
+.card:hover { border-color: var(--faint); background: var(--surface); transform: translateY(-3px); }
+
+/* A list where each item has a thin line down the left. */
+.ruled { list-style: none; }
+.ruled li {
+  border-left: 1px solid var(--line);
+  padding: 2px 0 2px 16px;
+  margin-bottom: 12px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  transition: border-color 0.25s;
+}
+.ruled li:hover { border-color: var(--accent); }
+
+/* Rows separated by lines, used on the events page. */
+.rows { border-top: 1px solid var(--line); }
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+/* Grey striped box standing in for a photo we do not have yet.
+   To use a real photo, swap the whole div for an <img>. */
+.photo {
+  background:
+    repeating-linear-gradient(45deg, transparent, transparent 10px,
+      rgba(110, 108, 102, 0.22) 10px, rgba(110, 108, 102, 0.22) 20px),
+    var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  aspect-ratio: 16 / 9;
+}
+.photo.square { aspect-ratio: 1 / 1; }
+.photo.wide { aspect-ratio: 4 / 3; }
+
+/* Big number used for the stats on the about page. */
+.stat-num {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--accent);
+}
+
+/* ---- 4. HEADER --------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(20, 19, 17, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+.logo { display: flex; align-items: baseline; gap: 8px; }
+.logo-num { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent); }
+.logo-name { font-family: var(--font-display); font-weight: 500; }
+
+.nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
+.nav-links > li { position: relative; }
+.nav-links a {
+  display: block;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--text); }
+
+/* Dropdown for About Us, Outreach and Community */
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 210px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 6px;
+  list-style: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+}
+.nav-links > li:hover .submenu,
+.nav-links > li:focus-within .submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.submenu a { color: var(--faint); border-radius: 6px; }
+.submenu a:hover { background: var(--raised); color: var(--text); }
+
+.menu-btn {
+  display: none;
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text);
+  padding: 8px 14px;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ---- 5. FORM ----------------------------------------------- */
+.field { margin-bottom: 20px; }
+.field label { display: block; font-size: 0.9rem; color: var(--muted); margin-bottom: 7px; }
+.field input, .field textarea {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 11px 14px;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  transition: border-color 0.2s;
+}
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--faint); }
+.field textarea { resize: vertical; min-height: 130px; }
+
+/* ---- 6. FOOTER --------------------------------------------- */
+.site-footer { border-top: 1px solid var(--line); padding: 60px 0 32px; }
+.footer-grid { display: grid; gap: 40px; grid-template-columns: 1fr 1fr; }
+.footer-list { list-style: none; margin-top: 14px; }
+.footer-list li { color: var(--muted); font-size: 0.9rem; margin-bottom: 7px; }
+.footer-list a { transition: color 0.2s; }
+.footer-list a:hover { color: var(--text); }
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+/* ---- 7. ANIMATION ------------------------------------------
+   Put class="reveal" on anything and it fades up when you
+   scroll to it. Handled by js/main.js.
+   Put class="reveal-group" on a grid and its children appear
+   one after another instead of all at once.
+   ------------------------------------------------------------ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+.reveal-group > *:nth-child(2) { transition-delay: 0.08s; }
+.reveal-group > *:nth-child(3) { transition-delay: 0.16s; }
+.reveal-group > *:nth-child(4) { transition-delay: 0.24s; }
+
+/* ---- 8. PHONES AND TABLETS --------------------------------- */
+@media (max-width: 900px) {
+  .split, .split-even { grid-template-columns: 1fr; gap: 32px; }
+  .g-4, .g-3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 760px) {
+  section { padding: 56px 0; }
+  .menu-btn { display: block; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 64px;
+    left: calc(var(--gutter) * -1);
+    right: calc(var(--gutter) * -1);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    padding: 8px var(--gutter) 16px;
+  }
+  .nav-links.open { display: flex; }
+  .submenu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    border: 0;
+    background: none;
+    padding: 0 0 0 14px;
+    min-width: 0;
+  }
+  .g-2, .g-3, .g-4 { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+}
+
+/* Respect people who turn animations off in their OS settings. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
