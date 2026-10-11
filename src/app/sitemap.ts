@@ -7,6 +7,7 @@ const ROUTES = [
   "/about",
   "/about/robots",
   "/outreach",
+  "/outreach/more",
   "/community",
   "/community/events",
   "/sponsors",
