@@ -1,74 +1,64 @@
 import Link from "next/link";
 import Container from "./Container";
-import { isTodo } from "./Todo";
+import Eyebrow from "./Eyebrow";
 import site from "@content/site.json";
 import { getCurrentYear } from "@/lib/year";
 
-const SOCIAL_LABELS: Record<string, string> = {
-  instagram: "Instagram",
-  youtube: "YouTube",
-  github: "GitHub",
-};
-
 export default async function Footer() {
   const year = await getCurrentYear();
-  const socials = Object.entries(site.socials);
 
   return (
-    <footer className="mt-auto border-t border-border bg-surface">
-      <Container className="py-12">
-        <div className="grid gap-8 sm:grid-cols-2">
+    <footer className="mt-auto border-t border-border">
+      <Container className="py-14">
+        <div className="grid gap-10 sm:grid-cols-2">
           <div>
-            <h2 className="text-lg font-bold">Join Our Journey</h2>
-            <p className="mt-2 max-w-sm text-sm leading-relaxed text-muted">
+            <h2 className="display text-2xl">Join our journey</h2>
+            <p className="mt-3 max-w-sm text-sm text-muted">
               {site.teamName} is always looking for students, mentors, and
-              sponsors. Reach out and we will get back to you.
+              sponsors.
             </p>
             <Link
               href="/contact"
-              className="mt-4 inline-block rounded bg-accent px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-accent-strong"
+              className="mt-5 inline-block rounded-full bg-accent px-5 py-2 text-sm font-medium text-background transition-opacity hover:opacity-90"
             >
-              Contact Us
+              Contact us
             </Link>
           </div>
 
-          <div className="sm:justify-self-end">
-            <h3 className="text-sm font-semibold uppercase tracking-wide text-muted">
-              Follow Us
-            </h3>
-            <ul className="mt-3 space-y-2">
-              {socials.map(([key, url]) =>
-                isTodo(url) ? (
-                  <li key={key} className="text-sm">
-                    <span className="todo">
-                      {SOCIAL_LABELS[key] ?? key}: {url}
-                    </span>
-                  </li>
-                ) : (
-                  <li key={key}>
-                    <a
-                      href={url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-accent hover:underline"
-                    >
-                      {SOCIAL_LABELS[key] ?? key}
-                    </a>
-                  </li>
-                ),
-              )}
-            </ul>
+          <div className="space-y-6 sm:justify-self-end">
+            <div>
+              <Eyebrow>Find us</Eyebrow>
+              <ul className="mt-3 space-y-1.5 text-sm text-muted">
+                <li>
+                  <a
+                    href={site.socials.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition-colors hover:text-foreground"
+                  >
+                    Instagram {site.socials.instagramHandle}
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={`mailto:${site.email}`}
+                    className="transition-colors hover:text-foreground"
+                  >
+                    {site.email}
+                  </a>
+                </li>
+                <li>{site.address}</li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <div className="mt-10 border-t border-border pt-6 text-sm text-muted">
-          <p>
-            FRC Team {site.teamNumber} &middot; {site.schoolName} &middot;{" "}
-            {site.location}
+        <div className="mt-12 flex flex-wrap justify-between gap-3 border-t border-border pt-6">
+          <p className="eyebrow">
+            Team {site.teamNumber} &middot; {site.schoolName}
           </p>
-          <p className="mt-1">
-            &copy; {year} {site.teamName}. All rights
-            reserved.
+          <p className="eyebrow">
+            &copy; {year} {site.teamName}
           </p>
         </div>
       </Container>
