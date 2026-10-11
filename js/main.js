@@ -126,6 +126,20 @@ if (parallaxItems.length && hasMouse && !reducedMotion) {
   });
 }
 
+var heroVideo = document.querySelector(".hero-video");
+
+if (heroVideo) {
+  var dropVideo = function () {
+    heroVideo.style.display = "none";
+  };
+  heroVideo.addEventListener("error", dropVideo, true);
+  var heroSource = heroVideo.querySelector("source");
+  if (heroSource) heroSource.addEventListener("error", dropVideo);
+  window.setTimeout(function () {
+    if (heroVideo.readyState === 0) dropVideo();
+  }, 1200);
+}
+
 document.querySelectorAll(".logo-img, .footer-logo").forEach(function (img) {
   var swapForText = function () {
     var text = document.createElement("span");
