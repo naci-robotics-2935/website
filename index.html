@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- SEO. If the domain ever changes, find and replace "https://www.2935.ca"
+<!-- SEO. If the domain changes, find and replace "https://www.2935.ca"
      here, in every other .html file, and in robots.txt + sitemap.xml.
      Then resubmit the site in Google Search Console. -->
 <title>NACI Robotics | Team 2935 | FIRST Robotics Competition</title>
-<meta name="description" content="NACI Robotics is a high school FIRST Robotics Competition team from Rexdale, Ontario with 30+ members. We design, build and drive a competition robot every year, and run workshops, school demos and mentoring across our community.">
+<meta name="description" content="NACI Robotics is a high school FIRST Robotics Competition team from Rexdale, Ontario with 30+ members. Competing since 2009, with 18 awards and a trip to the World Championship in Houston.">
 <link rel="canonical" href="https://www.2935.ca/">
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#141311">
+<meta name="theme-color" content="#03041a">
 
 <!-- How the link looks when shared on Instagram, Discord, iMessage. -->
 <meta property="og:type" content="website">
@@ -46,19 +46,20 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600&family=Orbitron:wght@600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
+
+<div class="scroll-bar"></div>
 
 <!-- ============ HEADER. Same on every page. If you change a menu
      item here, change it in the other .html files too. ============ -->
 <header class="site-header">
   <div class="wrap nav-bar">
     <a href="index.html" class="logo">
-      <span class="logo-num">2935</span>
-      <span class="logo-name">NACI Robotics</span>
+      <img src="img/logo.png" alt="NACI Robotics" class="logo-img">
     </a>
 
     <button class="menu-btn" aria-expanded="false" aria-label="Toggle menu">Menu</button>
@@ -66,7 +67,7 @@
     <ul class="nav-links">
       <li><a href="index.html" class="active">Home</a></li>
       <li>
-        <a href="about.html">About Us</a>
+        <a href="about.html">About</a>
         <ul class="submenu">
           <li><a href="robots.html">Our FRC Robots</a></li>
         </ul>
@@ -84,7 +85,7 @@
         </ul>
       </li>
       <li><a href="sponsors.html">Sponsors</a></li>
-      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
 </header>
@@ -92,114 +93,221 @@
 <main>
 
   <!-- ============ HERO ============ -->
-  <section>
-    <div class="wrap split-even">
-      <div class="reveal">
-        <p class="eyebrow">Team 2935 &middot; Rexdale, Ontario</p>
-        <h1 class="display h-xl mt-2">We Don&rsquo;t Just Build Robots</h1>
-        <p class="lead mt-3">
+  <section class="hero">
+    <div class="hero-grid parallax" data-parallax="0.015"></div>
+    <div class="hero-glow parallax" data-parallax="0.04"></div>
+
+    <div class="wrap hero-inner split-even">
+      <div>
+        <p class="eyebrow">FRC 2935 &nbsp;/&nbsp; Rexdale, Ontario &nbsp;/&nbsp; Est. 2009</p>
+
+        <h1 class="display h-hero mt-2 split-in">
+          We Don&rsquo;t Just <span class="outline">Build Robots</span>
+        </h1>
+
+        <p class="lead mt-3 reveal">
           NACI Robotics is a passionate high school robotics team from Rexdale,
           Ontario, with 30+ members. We compete in FIRST, a global robotics
           competition, and are dedicated to learning, building, and inspiring
-          through STEM. Beyond competing, we run youth workshops, school demos,
-          and mentor other teams to make STEM accessible to all.
+          through STEM.
         </p>
-        <div class="btn-row mt-4">
-          <a href="about.html" class="btn btn-main">About us</a>
-          <a href="contact.html" class="btn btn-ghost">Join the team</a>
+
+        <div class="mt-3 reveal" style="display:flex;flex-wrap:wrap;gap:14px">
+          <a href="about.html" class="btn btn-main">Meet the team</a>
+          <a href="contact.html" class="btn btn-ghost">Join us</a>
         </div>
       </div>
 
-      <!-- Swap this div for <img src="img/hero.jpg" alt="..."> when you have the photo -->
-      <div class="photo wide reveal">
+      <!-- Swap this div for <img src="img/hero.jpg" class="photo tall" alt="..."> -->
+      <div class="photo tall reveal parallax" data-parallax="0.025">
         <span class="eyebrow">Team or robot hero photo</span>
       </div>
     </div>
   </section>
 
-  <!-- ============ OUR TEAM ============ -->
+  <!-- ============ TICKER. Edit the words, but keep the second half
+       identical to the first or the loop will jump. ============ -->
+  <div class="ticker">
+    <div class="ticker-track">
+      <span>15 FRC seasons</span><span>18 awards</span><span>1 blue banner</span>
+      <span>Houston World Championship</span><span>200+ members and alumni</span>
+      <span>100+ community events</span><span>Rexdale, Ontario</span>
+      <span>15 FRC seasons</span><span>18 awards</span><span>1 blue banner</span>
+      <span>Houston World Championship</span><span>200+ members and alumni</span>
+      <span>100+ community events</span><span>Rexdale, Ontario</span>
+    </div>
+  </div>
+
+  <!-- ============ 01 WHO WE ARE ============ -->
   <section>
     <div class="wrap">
-      <p class="eyebrow reveal">Our team</p>
-      <h2 class="display h-lg mt-2 reveal">The people behind 2935</h2>
+      <div class="split">
+        <div class="reveal">
+          <p class="section-no">01</p>
+          <h2 class="display h-xl mt-2">Who<br>We Are</h2>
+        </div>
+        <div class="reveal">
+          <p class="lead">
+            Founded in 2009, 2935 NACI Robotics is a proud FIRST Robotics team
+            representing North Albion Collegiate Institute. Our team brings
+            together passionate students who design, build, and program
+            competitive robots while developing real-world engineering,
+            teamwork, and leadership skills.
+          </p>
+          <p class="mt-2">
+            Beyond competing, we run youth workshops, school demos, and mentor
+            other teams to make STEM accessible to all.
+          </p>
+          <a href="about.html" class="link-line mt-3">More about us</a>
+        </div>
+      </div>
+
+      <!-- These numbers count up when you scroll to them. -->
       <div class="grid g-4 mt-4 reveal reveal-group">
-        <div class="photo square"><span class="eyebrow">Team photo</span></div>
-        <div class="photo square"><span class="eyebrow">Build season</span></div>
-        <div class="photo square"><span class="eyebrow">Competition</span></div>
-        <div class="photo square"><span class="eyebrow">Drive team</span></div>
+        <div>
+          <p class="stat-num" data-count="200" data-suffix="+">0</p>
+          <p class="eyebrow mt-1">Members and alumni</p>
+        </div>
+        <div>
+          <p class="stat-num">2009</p>
+          <p class="eyebrow mt-1">Rookie year</p>
+        </div>
+        <div>
+          <p class="stat-num" data-count="15">0</p>
+          <p class="eyebrow mt-1">FRC seasons</p>
+        </div>
+        <div>
+          <p class="stat-num" data-count="18">0</p>
+          <p class="eyebrow mt-1">Awards won</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ ABOUT FIRST ============ -->
+  <div class="rule"></div>
+
+  <!-- ============ 02 THE ROBOT ============ -->
+  <section>
+    <div class="wrap">
+      <div class="head-row reveal">
+        <div>
+          <p class="section-no">02</p>
+          <h2 class="display h-xl mt-2">Azure</h2>
+          <p class="eyebrow hot mt-1">2025 &nbsp;/&nbsp; Reefscape &nbsp;/&nbsp; Houston, Texas</p>
+        </div>
+        <a href="robots.html" class="link-line">All our robots</a>
+      </div>
+
+      <div class="split-even mt-4">
+        <div class="photo wide reveal parallax" data-parallax="0.02">
+          <span class="eyebrow">Azure, 2025 robot</span>
+        </div>
+        <div class="reveal">
+          <p>
+            Our 2025 robot for the REEFSCAPE game. Azure took us through the
+            Ontario district season and on to the FIRST World Championship in
+            Houston, Texas.
+          </p>
+          <ul class="ruled mt-3">
+            <li>District Finalist, Humber Polytechnic Event</li>
+            <li>Quality Award, Humber Polytechnic Event</li>
+            <li>3rd Place, North Bay Event</li>
+            <li>Qualified for Houston, Texas Championship</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- ============ 03 OUTREACH ============ -->
+  <section>
+    <div class="wrap">
+      <div class="head-row reveal">
+        <div>
+          <p class="section-no">03</p>
+          <h2 class="display h-xl mt-2">Beyond<br>The Build</h2>
+        </div>
+        <a href="outreach.html" class="link-line">See our outreach</a>
+      </div>
+
+      <div class="grid g-3 mt-4 reveal reveal-group">
+        <div class="card">
+          <p class="eyebrow hot">Annual event</p>
+          <h3 class="display h-sm mt-2">Science Rendezvous</h3>
+          <p class="mt-2" style="font-size:0.92rem">
+            Parents and youth explore our program, drive the MiniBots, and get
+            hands on with Azure.
+          </p>
+        </div>
+        <div class="card">
+          <p class="eyebrow hot">Weekly</p>
+          <h3 class="display h-sm mt-2">HackNights</h3>
+          <p class="mt-2" style="font-size:0.92rem">
+            Hands-on build nights. Spaghetti towers, rubber band cars,
+            parachutes. A new challenge every week.
+          </p>
+        </div>
+        <div class="card">
+          <p class="eyebrow hot">Ages 14 to 18</p>
+          <h3 class="display h-sm mt-2">MiniBots</h3>
+          <p class="mt-2" style="font-size:0.92rem">
+            A multi-week program modelled on FRC, with custom bots in 2 vs 2
+            matches.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- ============ 04 FIRST ============ -->
   <section>
     <div class="wrap split">
       <div class="reveal">
-        <p class="eyebrow">About FIRST</p>
-        <h2 class="display h-lg mt-2">What FIRST is</h2>
-        <a href="https://www.firstinspires.org/robotics/frc" target="_blank" rel="noopener noreferrer" class="link-accent mt-3" style="display:inline-block">Learn more about FRC</a>
+        <p class="section-no">04</p>
+        <h2 class="display h-xl mt-2">What<br>Is FIRST</h2>
+        <a href="https://www.firstinspires.org/robotics/frc" target="_blank" rel="noopener noreferrer" class="link-line mt-3">firstinspires.org</a>
       </div>
-      <p class="reveal">
-        FIRST, For Inspiration and Recognition of Science and Technology, is a
-        global organization that uses robotics competitions to inspire young
-        people to explore STEM (science, technology, engineering, and math).
-        Every year, students from around the world work together to design,
-        build, and program robots to compete in high energy challenges. But
-        it&rsquo;s not just about robots. FIRST is about teamwork,
-        problem-solving, and innovation. We&rsquo;re proud to be part of the
-        FIRST Robotics Competition (FRC), the highest level of competition for
-        high school students. It&rsquo;s where students take on real
-        engineering challenges, build advanced robots, and create memories and
-        skills that last beyond the season, with FIRST having a proven impact
-        on STEM learning, interest, and skill-building well beyond high school.
-      </p>
+      <div class="reveal">
+        <p>
+          FIRST, For Inspiration and Recognition of Science and Technology, is a
+          global organization that uses robotics competitions to inspire young
+          people to explore STEM. Every year, students from around the world
+          work together to design, build, and program robots to compete in high
+          energy challenges.
+        </p>
+        <p class="mt-2">
+          But it&rsquo;s not just about robots. FIRST is about teamwork,
+          problem-solving, and innovation. We&rsquo;re proud to be part of the
+          FIRST Robotics Competition, the highest level of competition for high
+          school students, where students take on real engineering challenges
+          and build skills that last well beyond the season.
+        </p>
+      </div>
     </div>
   </section>
 
-  <!-- ============ EVENTS ============ -->
+  <div class="rule"></div>
+
+  <!-- ============ 05 JOIN ============ -->
   <section>
     <div class="wrap">
-      <p class="eyebrow reveal">Events</p>
-      <h2 class="display h-lg mt-2 reveal">Where you can find us</h2>
-      <div class="grid g-2 mt-4 reveal reveal-group">
-        <div class="card">
-          <h3 class="display h-sm">Ontario District</h3>
-          <p class="eyebrow mt-1">Date to be announced</p>
-        </div>
-        <div class="card">
-          <h3 class="display h-sm">Humber Polytechnic Event</h3>
-          <p class="eyebrow mt-1">Date to be announced</p>
-        </div>
-      </div>
-      <a href="events.html" class="link-accent mt-3" style="display:inline-block">View all events</a>
-    </div>
-  </section>
-
-  <!-- ============ SEASON UPDATES ============ -->
-  <section>
-    <div class="wrap">
-      <p class="eyebrow reveal">Season updates</p>
-      <h2 class="display h-lg mt-2 reveal">What we have been up to</h2>
-      <div class="grid g-3 mt-4 reveal reveal-group">
-        <div class="photo wide"><span class="eyebrow">Update photo</span></div>
-        <div class="photo wide"><span class="eyebrow">Update photo</span></div>
-        <div class="photo wide"><span class="eyebrow">Update photo</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ RECRUITMENT ============ -->
-  <section>
-    <div class="wrap narrow reveal">
-      <h2 class="display h-lg">Robots need builders. That&rsquo;s you!</h2>
-      <p class="mt-3">
+      <p class="section-no reveal">05</p>
+      <h2 class="display h-xl mt-2 narrow split-in">
+        Robots Need <span class="accent">Builders</span>
+      </h2>
+      <p class="lead mt-3 reveal">
         Love STEM, media, or business? Our robotics team is more than just
-        building robots. It&rsquo;s about creating a full experience. Whether
-        you code, design, film, fundraise, plan events, or want to mentor,
-        there&rsquo;s a place for you. Join a team where creativity meets
-        innovation and every skill makes a difference.
+        building robots. Whether you code, design, film, fundraise, plan events,
+        or want to mentor, there&rsquo;s a place for you. Join a team where
+        creativity meets innovation and every skill makes a difference.
       </p>
-      <a href="contact.html" class="btn btn-main mt-4">Contact us</a>
+      <div class="mt-3 reveal">
+        <a href="contact.html" class="btn btn-main">Get in touch</a>
+      </div>
     </div>
   </section>
 
@@ -210,21 +318,24 @@
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <h2 class="display h-md">Join our journey</h2>
-        <p class="mt-2">NACI Robotics is always looking for students, mentors, and sponsors.</p>
+        <img src="img/logo.png" alt="NACI Robotics" class="footer-logo">
+        <h2 class="display h-lg mt-3">Students.<br>Mentors.<br>Sponsors.</h2>
         <a href="contact.html" class="btn btn-main mt-3">Contact us</a>
       </div>
       <div>
         <p class="eyebrow">Find us</p>
         <ul class="footer-list">
-          <li><a href="https://www.instagram.com/nacirobotics" target="_blank" rel="noopener noreferrer">Instagram @nacirobotics</a></li>
           <li><a href="mailto:naci@2935.ca">naci@2935.ca</a></li>
-          <li>2580 Kipling Ave, Etobicoke, ON M9V 3B2</li>
+          <li><a href="https://www.instagram.com/nacirobotics" target="_blank" rel="noopener noreferrer">Instagram @nacirobotics</a></li>
+          <li>2580 Kipling Ave<br>Etobicoke, ON M9V 3B2</li>
         </ul>
       </div>
     </div>
+
+    <div class="footer-ghost">2935</div>
+
     <div class="footer-bottom">
-      <p class="eyebrow">Team 2935 &middot; North Albion Collegiate Institute</p>
+      <p class="eyebrow">North Albion Collegiate Institute</p>
       <p class="eyebrow">&copy; <span data-year>2026</span> NACI Robotics</p>
     </div>
   </div>
