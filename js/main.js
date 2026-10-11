@@ -126,6 +126,92 @@ if (parallaxItems.length && hasMouse && !reducedMotion) {
   });
 }
 
+document.querySelectorAll(".slider").forEach(function (slider) {
+  var slides = Array.prototype.slice.call(slider.querySelectorAll(".slide"));
+  var dots = Array.prototype.slice.call(slider.querySelectorAll(".dot"));
+  if (slides.length < 2) return;
+
+  var interval = parseInt(slider.getAttribute("data-interval"), 10) || 4000;
+  slider.style.setProperty("--slide-time", interval + "ms");
+
+  var index = 0;
+  var timer = null;
+
+  var show = function (next) {
+    index = (next + slides.length) % slides.length;
+    slides.forEach(function (slide, i) {
+      slide.classList.toggle("is-active", i === index);
+    });
+    dots.forEach(function (dot, i) {
+      var active = i === index;
+      dot.setAttribute("aria-selected", active ? "true" : "false");
+      if (active) {
+        var bar = dot.querySelector("i");
+        if (bar) {
+          bar.style.animation = "none";
+          void bar.offsetWidth;
+          bar.style.animation = "";
+        }
+      }
+      dot.classList.toggle("is-active", active);
+    });
+  };
+
+  var start = function () {
+    if (reducedMotion) return;
+    window.clearInterval(timer);
+    timer = window.setInterval(function () { show(index + 1); }, interval);
+  };
+
+  var stop = function () { window.clearInterval(timer); };
+
+  dots.forEach(function (dot, i) {
+    dot.addEventListener("click", function () {
+      show(i);
+      start();
+    });
+  });
+
+  slider.addEventListener("mouseenter", function () {
+    slider.classList.add("is-paused");
+    stop();
+  });
+  slider.addEventListener("mouseleave", function () {
+    slider.classList.remove("is-paused");
+    start();
+  });
+
+  document.addEventListener("visibilitychange", function () {
+    if (document.hidden) { stop(); } else { start(); }
+  });
+
+  var touchX = null;
+  slider.addEventListener("touchstart", function (e) {
+    touchX = e.changedTouches[0].clientX;
+    stop();
+  }, { passive: true });
+  slider.addEventListener("touchend", function (e) {
+    if (touchX === null) return;
+    var delta = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(delta) > 45) show(index + (delta < 0 ? 1 : -1));
+    touchX = null;
+    start();
+  }, { passive: true });
+
+  show(0);
+
+  if ("IntersectionObserver" in window) {
+    var sliderWatcher = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { start(); } else { stop(); }
+      });
+    }, { threshold: 0.25 });
+    sliderWatcher.observe(slider);
+  } else {
+    start();
+  }
+});
+
 var heroVideo = document.querySelector(".hero-video");
 
 if (heroVideo) {
