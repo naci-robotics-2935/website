@@ -5,33 +5,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>About Us | NACI Robotics 2935</title>
-<meta name="description" content="At NACI Robotics our mission is to empower students through hands-on STEM experiences that foster creativity, collaboration, and leadership. Founded in 2009 at North Albion Collegiate Institute.">
+<meta name="description" content="Our mission is to empower students through hands-on STEM experiences that foster creativity, collaboration, and leadership. Founded in 2009 at North Albion Collegiate Institute.">
 <link rel="canonical" href="https://www.2935.ca/about">
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#141311">
+<meta name="theme-color" content="#03041a">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.2935.ca/about">
 <meta property="og:title" content="About Us | NACI Robotics 2935">
-<meta property="og:description" content="At NACI Robotics our mission is to empower students through hands-on STEM experiences that foster creativity, collaboration, and leadership. Founded in 2009 at North Albion Collegiate Institute.">
+<meta property="og:description" content="Our mission is to empower students through hands-on STEM experiences that foster creativity, collaboration, and leadership. Founded in 2009 at North Albion Collegiate Institute.">
 <meta property="og:image" content="https://www.2935.ca/img/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600&family=Orbitron:wght@600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
+
+<div class="scroll-bar"></div>
 
 <!-- ============ HEADER. Same on every page. If you change a menu
      item here, change it in the other .html files too. ============ -->
 <header class="site-header">
   <div class="wrap nav-bar">
     <a href="index.html" class="logo">
-      <span class="logo-num">2935</span>
-      <span class="logo-name">NACI Robotics</span>
+      <img src="img/logo.png" alt="NACI Robotics" class="logo-img">
     </a>
 
     <button class="menu-btn" aria-expanded="false" aria-label="Toggle menu">Menu</button>
@@ -39,7 +40,7 @@
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li>
-        <a href="about.html" class="active">About Us</a>
+        <a href="about.html" class="active">About</a>
         <ul class="submenu">
           <li><a href="robots.html">Our FRC Robots</a></li>
         </ul>
@@ -57,7 +58,7 @@
         </ul>
       </li>
       <li><a href="sponsors.html">Sponsors</a></li>
-      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
 </header>
@@ -65,71 +66,109 @@
 <main>
 
   <!-- ============ PAGE TITLE ============ -->
-  <section>
-    <div class="wrap reveal">
+  <section class="hero" style="min-height:auto;padding:90px 0 70px">
+    <div class="hero-grid parallax" data-parallax="0.012"></div>
+    <div class="hero-glow parallax" data-parallax="0.035"></div>
+    <div class="wrap hero-inner">
       <p class="eyebrow">About NACI Robotics</p>
-      <h1 class="display h-xl mt-2">Discover more about our team and the work we do</h1>
+      <h1 class="display h-xl mt-2 split-in">Who We Are</h1>
     </div>
   </section>
 
-  <!-- ============ MISSION ============ -->
+  <!-- ============ 01 MISSION ============ -->
   <section>
     <div class="wrap split">
       <div class="reveal">
-        <p class="eyebrow">Our mission</p>
-        <h2 class="display h-lg mt-2">What Do We Do?</h2>
-        <ul class="ruled mt-4">
+        <p class="section-no">01</p>
+        <h2 class="display h-lg mt-2">Our<br>Mission</h2>
+      </div>
+      <div class="reveal">
+        <p class="lead">
+          At NACI Robotics, our mission is to empower students through
+          hands-on STEM experiences that foster creativity, collaboration, and
+          leadership.
+        </p>
+        <p class="mt-2">
+          We are committed to making science, technology, engineering, and math
+          more accessible and inclusive for all, while building innovative
+          solutions, inspiring our community, and breaking barriers through
+          equity, excellence, and resilience.
+        </p>
+        <ul class="ruled mt-3">
           <li>Empower</li>
           <li>Growth</li>
           <li>Compliance</li>
         </ul>
       </div>
-      <p class="reveal">
-        At NACI Robotics, our mission is to empower students through hands-on
-        STEM experiences that foster creativity, collaboration, and leadership.
-        We are committed to making science, technology, engineering, and math
-        more accessible and inclusive for all, while building innovative
-        solutions, inspiring our community, and breaking barriers through
-        equity, excellence, and resilience.
-      </p>
     </div>
   </section>
 
-  <!-- ============ BY THE NUMBERS ============ -->
+  <div class="rule"></div>
+
+  <!-- ============ 02 BY THE NUMBERS. Numbers count up on scroll. ============ -->
   <section>
     <div class="wrap">
-      <p class="eyebrow reveal">By the numbers</p>
-      <div class="grid g-3 mt-4 reveal reveal-group" style="gap:40px 24px">
+      <p class="section-no reveal">02</p>
+      <h2 class="display h-lg mt-2 reveal">By The Numbers</h2>
+
+      <div class="grid g-3 mt-4 reveal reveal-group" style="gap:48px 24px">
         <div>
-          <p class="stat-num">200+</p>
-          <p class="mt-1">Members, alumni, and mentors throughout our team&rsquo;s history, and counting</p>
+          <p class="stat-num" data-count="200" data-suffix="+">0</p>
+          <p class="mt-1" style="font-size:0.9rem">Members, alumni, and mentors throughout our team&rsquo;s history, and counting</p>
         </div>
         <div>
           <p class="stat-num">2009</p>
-          <p class="mt-1">NACI Robotics&rsquo; rookie year in the FIRST Robotics Competition</p>
+          <p class="mt-1" style="font-size:0.9rem">NACI Robotics&rsquo; rookie year in the FIRST Robotics Competition</p>
         </div>
         <div>
-          <p class="stat-num">100+</p>
-          <p class="mt-1">Community events organized</p>
+          <p class="stat-num" data-count="100" data-suffix="+">0</p>
+          <p class="mt-1" style="font-size:0.9rem">Community events organized</p>
         </div>
         <div>
-          <p class="stat-num">15</p>
-          <p class="mt-1">FIRST Robotics Competition seasons participated</p>
+          <p class="stat-num" data-count="15">0</p>
+          <p class="mt-1" style="font-size:0.9rem">FIRST Robotics Competition seasons participated</p>
         </div>
         <div>
-          <p class="stat-num">18</p>
-          <p class="mt-1">FIRST Robotics Competition awards, including 1 blue banner</p>
+          <p class="stat-num" data-count="18">0</p>
+          <p class="mt-1" style="font-size:0.9rem">FIRST Robotics Competition awards, including 1 blue banner</p>
+        </div>
+        <div>
+          <p class="stat-num" data-count="1">0</p>
+          <p class="mt-1" style="font-size:0.9rem">Blue banner, the highest honour a team can bring home</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ COMPLIANCE ============ -->
+  <div class="rule"></div>
+
+  <!-- ============ 03 THE TEAM ============ -->
+  <section>
+    <div class="wrap">
+      <div class="head-row reveal">
+        <div>
+          <p class="section-no">03</p>
+          <h2 class="display h-lg mt-2">The Team</h2>
+        </div>
+        <a href="robots.html" class="link-line">See our robots</a>
+      </div>
+      <div class="grid g-4 mt-4 reveal reveal-group">
+        <div class="photo square"><span class="eyebrow">Team photo</span></div>
+        <div class="photo square"><span class="eyebrow">Build season</span></div>
+        <div class="photo square"><span class="eyebrow">Competition</span></div>
+        <div class="photo square"><span class="eyebrow">Mentors</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- ============ 04 SAFETY ============ -->
   <section>
     <div class="wrap split">
       <div class="reveal">
-        <p class="eyebrow">Compliance</p>
-        <h2 class="display h-md mt-2">Lab safety</h2>
+        <p class="section-no">04</p>
+        <h2 class="display h-lg mt-2">Lab<br>Safety</h2>
       </div>
       <p class="reveal">
         NACI Robotics adheres to the policies of the NACI Robotics lab safety
@@ -142,21 +181,6 @@
     </div>
   </section>
 
-  <!-- ============ OUR TEAM ============ -->
-  <section>
-    <div class="wrap">
-      <p class="eyebrow reveal">Our team</p>
-      <h2 class="display h-lg mt-2 reveal">Our team members</h2>
-      <div class="grid g-4 mt-4 reveal reveal-group">
-        <div class="photo square"><span class="eyebrow">Team photo</span></div>
-        <div class="photo square"><span class="eyebrow">Subteam photo</span></div>
-        <div class="photo square"><span class="eyebrow">Subteam photo</span></div>
-        <div class="photo square"><span class="eyebrow">Mentors</span></div>
-      </div>
-      <a href="robots.html" class="link-accent mt-3" style="display:inline-block">See our FRC robots</a>
-    </div>
-  </section>
-
 </main>
 
 <!-- ============ FOOTER. Same on every page. ============ -->
@@ -164,21 +188,24 @@
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <h2 class="display h-md">Join our journey</h2>
-        <p class="mt-2">NACI Robotics is always looking for students, mentors, and sponsors.</p>
+        <img src="img/logo.png" alt="NACI Robotics" class="footer-logo">
+        <h2 class="display h-lg mt-3">Students.<br>Mentors.<br>Sponsors.</h2>
         <a href="contact.html" class="btn btn-main mt-3">Contact us</a>
       </div>
       <div>
         <p class="eyebrow">Find us</p>
         <ul class="footer-list">
-          <li><a href="https://www.instagram.com/nacirobotics" target="_blank" rel="noopener noreferrer">Instagram @nacirobotics</a></li>
           <li><a href="mailto:naci@2935.ca">naci@2935.ca</a></li>
-          <li>2580 Kipling Ave, Etobicoke, ON M9V 3B2</li>
+          <li><a href="https://www.instagram.com/nacirobotics" target="_blank" rel="noopener noreferrer">Instagram @nacirobotics</a></li>
+          <li>2580 Kipling Ave<br>Etobicoke, ON M9V 3B2</li>
         </ul>
       </div>
     </div>
+
+    <div class="footer-ghost">2935</div>
+
     <div class="footer-bottom">
-      <p class="eyebrow">Team 2935 &middot; North Albion Collegiate Institute</p>
+      <p class="eyebrow">North Albion Collegiate Institute</p>
       <p class="eyebrow">&copy; <span data-year>2026</span> NACI Robotics</p>
     </div>
   </div>

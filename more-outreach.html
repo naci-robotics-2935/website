@@ -8,7 +8,7 @@
 <meta name="description" content="HackNights, FIRST LEGO League and MiniBots. The programs NACI Robotics runs beyond our own competition season.">
 <link rel="canonical" href="https://www.2935.ca/more-outreach">
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#141311">
+<meta name="theme-color" content="#03041a">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.2935.ca/more-outreach">
@@ -19,19 +19,20 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600&family=Orbitron:wght@600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
+
+<div class="scroll-bar"></div>
 
 <!-- ============ HEADER. Same on every page. If you change a menu
      item here, change it in the other .html files too. ============ -->
 <header class="site-header">
   <div class="wrap nav-bar">
     <a href="index.html" class="logo">
-      <span class="logo-num">2935</span>
-      <span class="logo-name">NACI Robotics</span>
+      <img src="img/logo.png" alt="NACI Robotics" class="logo-img">
     </a>
 
     <button class="menu-btn" aria-expanded="false" aria-label="Toggle menu">Menu</button>
@@ -39,7 +40,7 @@
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li>
-        <a href="about.html">About Us</a>
+        <a href="about.html">About</a>
         <ul class="submenu">
           <li><a href="robots.html">Our FRC Robots</a></li>
         </ul>
@@ -57,7 +58,7 @@
         </ul>
       </li>
       <li><a href="sponsors.html">Sponsors</a></li>
-      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
 </header>
@@ -65,25 +66,31 @@
 <main>
 
   <!-- ============ PAGE TITLE ============ -->
-  <section>
-    <div class="wrap reveal">
+  <section class="hero" style="min-height:auto;padding:90px 0 70px">
+    <div class="hero-grid parallax" data-parallax="0.012"></div>
+    <div class="hero-glow parallax" data-parallax="0.035"></div>
+    <div class="wrap hero-inner">
       <p class="eyebrow">More outreach</p>
-      <h1 class="display h-xl mt-2">More Outreach</h1>
-      <p class="lead mt-3">The programs we run beyond our own competition season.</p>
+      <h1 class="display h-xl mt-2 split-in">Our <span class="outline">Programs</span></h1>
+      <p class="lead mt-3 reveal">What we run when we are not building our own robot.</p>
     </div>
   </section>
 
-  <!-- ============ HACKNIGHTS ============ -->
+  <!-- ============ 01 HACKNIGHTS ============ -->
   <section id="hacknights">
     <div class="wrap">
-      <div class="reveal">
-        <p class="eyebrow">What are HackNights?</p>
-        <h2 class="display h-lg mt-2">HackNights</h2>
-      </div>
-      <div class="split mt-4 reveal">
+      <div class="head-row reveal">
         <div>
-          <h3 class="display h-sm">What Are HackNights?</h3>
-          <p class="mt-1">
+          <p class="section-no">01</p>
+          <h2 class="display h-xl mt-2">HackNights</h2>
+          <p class="eyebrow hot mt-1">Every week</p>
+        </div>
+      </div>
+
+      <div class="split-even mt-4">
+        <div class="reveal">
+          <h3 class="display h-sm">What are HackNights?</h3>
+          <p class="mt-2">
             HackNights are fun, hands-on build events where students team up to
             tackle creative engineering challenges. Each week brings a brand new
             activity, from building spaghetti towers to designing rubber band
@@ -91,86 +98,93 @@
             brainstorm, plan, and build, developing problem-solving, teamwork,
             and communication skills in a supportive, interactive environment.
           </p>
-          <h3 class="display h-sm mt-3">Learning Through Doing</h3>
-          <p class="mt-1">
+          <h3 class="display h-sm mt-3">Learning through doing</h3>
+          <p class="mt-2">
             HackNights help students build a strong foundation in engineering,
             design, and critical thinking while fostering creativity and
             curiosity. By practicing problem-solving every week, students gain
             confidence and develop skills that prepare them for bigger
-            challenges like Minibots, FLL, and eventually FRC. These sessions
-            make learning hands-on, engaging, and fun, encouraging students to
-            explore, experiment, and innovate.
+            challenges like Minibots, FLL, and eventually FRC.
           </p>
         </div>
-        <div class="photo wide"><span class="eyebrow">HackNights photo</span></div>
+        <div class="photo wide reveal parallax" data-parallax="0.02">
+          <span class="eyebrow">HackNights photo</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ FIRST LEGO LEAGUE ============ -->
+  <div class="rule"></div>
+
+  <!-- ============ 02 FIRST LEGO LEAGUE ============ -->
   <section id="fll">
     <div class="wrap">
       <div class="reveal">
-        <p class="eyebrow">What is FLL?</p>
-        <h2 class="display h-lg mt-2">FIRST LEGO League</h2>
+        <p class="section-no">02</p>
+        <h2 class="display h-xl mt-2">FIRST LEGO League</h2>
+        <p class="eyebrow hot mt-1">Ages 9 to 16</p>
       </div>
-      <div class="split mt-4 reveal">
-        <p>
+
+      <div class="split-even mt-4">
+        <div class="photo wide reveal parallax" data-parallax="0.02">
+          <span class="eyebrow">FLL photo</span>
+        </div>
+        <p class="reveal">
           FIRST LEGO League (FLL) is a robotics competition for students,
           usually ages 9 to 16. Teams build and program LEGO robots to complete
           missions on a themed field, and they also work on an Innovation
           Project to solve a real-world problem. The game is fully autonomous,
           meaning the bot runs on its own, which is why consistency is key.
         </p>
-        <div class="photo wide"><span class="eyebrow">FLL photo</span></div>
       </div>
 
-      <div class="grid g-2 mt-4 reveal">
-        <div>
-          <p class="eyebrow">STEM &amp; Technical Skills</p>
+      <div class="grid g-2 mt-4 reveal reveal-group">
+        <div class="card">
+          <p class="eyebrow hot">STEM and technical skills</p>
           <ul class="ruled mt-2">
-            <li>Programming: You learn to code LEGO robots using software like LEGO Spike or EV3.</li>
-            <li>Engineering &amp; Design: You design, build, and test robots to complete missions.</li>
-            <li>Problem Solving: You figure out how to make your robot do tasks efficiently.</li>
-            <li>Critical Thinking: You improve your design each time something doesn&rsquo;t work.</li>
+            <li>Programming: code LEGO robots using LEGO Spike or EV3</li>
+            <li>Engineering and design: design, build, and test robots</li>
+            <li>Problem solving: make your robot do tasks efficiently</li>
+            <li>Critical thinking: improve the design each time it fails</li>
           </ul>
         </div>
-        <div>
-          <p class="eyebrow">Soft Skills</p>
+        <div class="card">
+          <p class="eyebrow hot">Soft skills</p>
           <ul class="ruled mt-2">
-            <li>Teamwork: You work with others to share ideas.</li>
-            <li>Communication: You explain your ideas to judges and teammates clearly.</li>
-            <li>Creativity: You invent new solutions for real problems in your Innovation Project.</li>
-            <li>Time Management: You plan, test, and present all before competition day.</li>
-            <li>Resilience: You learn to keep going even when your robot fails.</li>
+            <li>Teamwork: work with others to share ideas</li>
+            <li>Communication: explain your ideas to judges clearly</li>
+            <li>Creativity: invent new solutions for real problems</li>
+            <li>Time management: plan, test, and present before the day</li>
+            <li>Resilience: keep going even when your robot fails</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ MINIBOTS ============ -->
+  <div class="rule"></div>
+
+  <!-- ============ 03 MINIBOTS ============ -->
   <section id="minibots">
     <div class="wrap">
       <div class="reveal">
-        <p class="eyebrow">What are MiniBots?</p>
-        <h2 class="display h-lg mt-2">MiniBots</h2>
+        <p class="section-no">03</p>
+        <h2 class="display h-xl mt-2">MiniBots</h2>
+        <p class="eyebrow hot mt-1">Ages 14 to 18 &nbsp;/&nbsp; 2 vs 2</p>
       </div>
-      <div class="split mt-4 reveal">
-        <div>
-          <h3 class="display h-sm">What Are MiniBots?</h3>
-          <p class="mt-1">
+
+      <div class="split-even mt-4">
+        <div class="reveal">
+          <h3 class="display h-sm">What are MiniBots?</h3>
+          <p class="mt-2">
             The MiniBot Competition is an exciting multi-week robotics program
             that challenges high school students aged 14 to 18 to design, build,
             and compete with their own custom MiniBots. Modeled after the FIRST
             Robotics Competition, it combines creativity, strategy, and
-            engineering in dynamic 2 vs 2 matches. Participants gain valuable
-            hands-on experience, enhance teamwork and problem-solving skills,
-            and showcase their innovation in a fun, competitive environment open
-            to both robotics teams and individual enthusiasts.
+            engineering in dynamic 2 vs 2 matches.
           </p>
-          <h3 class="display h-sm mt-3">The Focus</h3>
-          <p class="mt-1">
+          <h3 class="display h-sm mt-3">The focus</h3>
+          <p class="mt-2">
             Each MiniBot is designed and produced by Lord of Robots, a company
             focused on making robotics education simple, fun, and accessible for
             everyone. These MiniBots are engineered to be both powerful and easy
@@ -178,7 +192,9 @@
             students to start building right away.
           </p>
         </div>
-        <div class="photo wide"><span class="eyebrow">MiniBots photo</span></div>
+        <div class="photo wide reveal parallax" data-parallax="0.02">
+          <span class="eyebrow">MiniBots photo</span>
+        </div>
       </div>
     </div>
   </section>
@@ -190,21 +206,24 @@
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <h2 class="display h-md">Join our journey</h2>
-        <p class="mt-2">NACI Robotics is always looking for students, mentors, and sponsors.</p>
+        <img src="img/logo.png" alt="NACI Robotics" class="footer-logo">
+        <h2 class="display h-lg mt-3">Students.<br>Mentors.<br>Sponsors.</h2>
         <a href="contact.html" class="btn btn-main mt-3">Contact us</a>
       </div>
       <div>
         <p class="eyebrow">Find us</p>
         <ul class="footer-list">
-          <li><a href="https://www.instagram.com/nacirobotics" target="_blank" rel="noopener noreferrer">Instagram @nacirobotics</a></li>
           <li><a href="mailto:naci@2935.ca">naci@2935.ca</a></li>
-          <li>2580 Kipling Ave, Etobicoke, ON M9V 3B2</li>
+          <li><a href="https://www.instagram.com/nacirobotics" target="_blank" rel="noopener noreferrer">Instagram @nacirobotics</a></li>
+          <li>2580 Kipling Ave<br>Etobicoke, ON M9V 3B2</li>
         </ul>
       </div>
     </div>
+
+    <div class="footer-ghost">2935</div>
+
     <div class="footer-bottom">
-      <p class="eyebrow">Team 2935 &middot; North Albion Collegiate Institute</p>
+      <p class="eyebrow">North Albion Collegiate Institute</p>
       <p class="eyebrow">&copy; <span data-year>2026</span> NACI Robotics</p>
     </div>
   </div>
