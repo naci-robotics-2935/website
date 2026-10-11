@@ -1,190 +1,352 @@
 /* ============================================================
-   NACI Robotics 2935
-   Every page links to this one file. Change a colour or a font
-   here and it changes everywhere on the site.
+   NACI ROBOTICS 2935
+   One stylesheet for the whole site.
+
+   Contents
+     1. Colours and fonts   <- change these to rebrand
+     2. Base
+     3. Text
+     4. Layout
+     5. Buttons and links
+     6. Cards, lists, photos
+     7. Header
+     8. Hero
+     9. Marquee ticker
+    10. Stats
+    11. Forms
+    12. Footer
+    13. Animations
+    14. Phones and tablets
    ============================================================ */
 
-/* ---- 1. COLOURS AND FONTS. Change these to rebrand. -------- */
+/* ---- 1. COLOURS AND FONTS ---------------------------------
+   Navy and orange are taken from the original NACI site.
+   ------------------------------------------------------------ */
 :root {
-  --bg: #141311;          /* page background */
-  --surface: #1c1b19;     /* cards and boxes */
-  --raised: #242321;      /* hover state */
-  --text: #f2f0ed;        /* main text */
-  --muted: #a3a09a;       /* paragraphs */
-  --faint: #6f6c66;       /* small labels */
-  --accent: #4f8cff;      /* buttons and links */
-  --line: #2b2926;        /* thin borders */
+  --navy-900: #03041a;   /* deepest, page background */
+  --navy-800: #050623;   /* the original NACI navy */
+  --navy-700: #0a0d33;   /* cards */
+  --navy-600: #141a4d;   /* hover, borders that need to show */
 
-  --font-display: "Sora", system-ui, sans-serif;
-  --font-body: "Manrope", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
+  --orange: #f57d27;     /* the NACI accent */
+  --orange-hot: #ff9442;
+  --blue: #1d67cd;       /* secondary accent from the old site */
 
-  --max-width: 1150px;
+  --text: #eef1ff;
+  --muted: #9aa0c4;
+  --faint: #5f6590;
+  --line: rgba(154, 160, 196, 0.14);
+
+  --display: "Space Grotesk", system-ui, sans-serif;
+  --body: "Manrope", system-ui, sans-serif;
+  --tech: "Orbitron", system-ui, sans-serif;   /* numbers only */
+  --mono: "JetBrains Mono", monospace;
+
+  --wrap: 1180px;
   --gutter: 24px;
 }
 
 /* ---- 2. BASE ----------------------------------------------- */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; }
 
 body {
-  background: var(--bg);
+  background: var(--navy-900);
   color: var(--text);
-  font-family: var(--font-body);
+  font-family: var(--body);
   font-size: 16px;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
-main { flex: 1; }
+/* A faint grain over everything. This is the thing that stops a
+   dark site looking flat and cheap. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+main { flex: 1; position: relative; z-index: 2; }
 
 a { color: inherit; text-decoration: none; }
-
 img { max-width: 100%; display: block; }
 
-/* ---- 3. BUILDING BLOCKS ------------------------------------ */
+::selection { background: var(--orange); color: var(--navy-900); }
 
-/* Keeps content centred and the same width on every page. */
+/* Thin orange scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--navy-900); }
+::-webkit-scrollbar-thumb { background: var(--navy-600); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--orange); }
+
+/* ---- 3. TEXT ----------------------------------------------- */
+.display {
+  font-family: var(--display);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
+
+.h-hero { font-size: clamp(2.7rem, 7vw, 5.6rem); }
+.h-xl   { font-size: clamp(2.4rem, 6.5vw, 4.6rem); }
+.h-lg   { font-size: clamp(1.9rem, 4vw, 3rem); }
+.h-md   { font-size: clamp(1.4rem, 2.6vw, 1.9rem); }
+.h-sm   { font-size: 1.15rem; letter-spacing: -0.02em; }
+
+/* Outlined text, used for the second line of a big headline. */
+.outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--faint);
+}
+
+.accent { color: var(--orange); }
+
+/* Small uppercase mono label. */
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+.eyebrow.hot { color: var(--orange); }
+
+/* The 01 / 02 / 03 markers before a section heading. */
+.section-no {
+  font-family: var(--tech);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--orange);
+}
+
+p { color: var(--muted); }
+.lead { font-size: 1.07rem; max-width: 58ch; }
+.narrow { max-width: 66ch; }
+
+.mt-1 { margin-top: 10px; }
+.mt-2 { margin-top: 20px; }
+.mt-3 { margin-top: 32px; }
+.mt-4 { margin-top: 48px; }
+
+/* ---- 4. LAYOUT --------------------------------------------- */
 .wrap {
   width: 100%;
-  max-width: var(--max-width);
+  max-width: var(--wrap);
   margin: 0 auto;
   padding: 0 var(--gutter);
 }
 
-/* Big headings. Medium weight on purpose, bold looks cheap at this size. */
-.display {
-  font-family: var(--font-display);
-  font-weight: 500;
-  line-height: 1.06;
-  letter-spacing: -0.03em;
+section { padding: 110px 0; position: relative; }
+
+/* A hairline that fades out at both ends. Cleaner than a full border. */
+.rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line) 20%, var(--line) 80%, transparent);
 }
 
-.h-xl { font-size: clamp(2.6rem, 7vw, 4.5rem); }
-.h-lg { font-size: clamp(2rem, 5vw, 3.2rem); }
-.h-md { font-size: clamp(1.5rem, 3vw, 2.1rem); }
-.h-sm { font-size: 1.25rem; }
-
-/* The small uppercase label that sits above a heading. */
-.eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--faint);
-}
-
-p { color: var(--muted); }
-.lead { font-size: 1.05rem; max-width: 60ch; }
-.narrow { max-width: 65ch; }
-
-.mt-1 { margin-top: 10px; }
-.mt-2 { margin-top: 18px; }
-.mt-3 { margin-top: 28px; }
-.mt-4 { margin-top: 40px; }
-
-section { padding: 80px 0; border-bottom: 1px solid var(--line); }
-section:last-of-type { border-bottom: 0; }
-
-/* Buttons */
-.btn {
-  display: inline-block;
-  padding: 11px 26px;
-  border-radius: 999px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  transition: opacity 0.2s, border-color 0.2s, color 0.2s;
-}
-.btn-main { background: var(--accent); color: var(--bg); }
-.btn-main:hover { opacity: 0.88; }
-.btn-ghost { border: 1px solid var(--line); color: var(--muted); }
-.btn-ghost:hover { border-color: var(--faint); color: var(--text); }
-.btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
-
-.link-accent { color: var(--accent); font-size: 0.9rem; transition: opacity 0.2s; }
-.link-accent:hover { opacity: 0.75; }
-
-/* Grids */
-.grid { display: grid; gap: 24px; }
+.grid { display: grid; gap: 22px; }
 .g-2 { grid-template-columns: repeat(2, 1fr); }
 .g-3 { grid-template-columns: repeat(3, 1fr); }
 .g-4 { grid-template-columns: repeat(4, 1fr); }
-.split { display: grid; gap: 48px; grid-template-columns: 1fr 1.3fr; }
-.split-even { display: grid; gap: 48px; grid-template-columns: 1fr 1fr; align-items: center; }
+.split { display: grid; gap: 60px; grid-template-columns: 0.85fr 1.15fr; }
+.split-even { display: grid; gap: 60px; grid-template-columns: 1fr 1fr; align-items: center; }
 
-.card {
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 28px;
-  transition: border-color 0.25s, background 0.25s, transform 0.25s;
+.head-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
 }
-.card:hover { border-color: var(--faint); background: var(--surface); transform: translateY(-3px); }
 
-/* A list where each item has a thin line down the left. */
+/* ---- 5. BUTTONS AND LINKS ---------------------------------- */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 30px;
+  border-radius: 2px;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+/* Orange fill that wipes in from the left on hover. */
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+.btn:hover::before { transform: scaleX(1); }
+
+.btn-main {
+  background: var(--orange);
+  color: var(--navy-900);
+  z-index: 0;
+}
+.btn-main::before { background: var(--orange-hot); }
+
+.btn-ghost {
+  border: 1px solid var(--navy-600);
+  color: var(--muted);
+  z-index: 0;
+}
+.btn-ghost:hover { color: var(--navy-900); border-color: var(--orange); }
+
+/* Link with an orange line that draws in from the left. */
+.link-line {
+  position: relative;
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--orange);
+  padding-bottom: 4px;
+}
+.link-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.link-line:hover::after { transform: scaleX(1); transform-origin: left; }
+
+/* ---- 6. CARDS, LISTS, PHOTOS ------------------------------- */
+.card {
+  position: relative;
+  background: linear-gradient(160deg, var(--navy-800), var(--navy-900));
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 32px;
+  overflow: hidden;
+  transition: border-color 0.4s, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* Orange bar that grows down the left edge on hover. */
+.card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: var(--orange);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card:hover { border-color: var(--navy-600); transform: translateY(-6px); }
+.card:hover::before { transform: scaleY(1); }
+
 .ruled { list-style: none; }
 .ruled li {
-  border-left: 1px solid var(--line);
-  padding: 2px 0 2px 16px;
-  margin-bottom: 12px;
+  position: relative;
+  padding: 10px 0 10px 26px;
   color: var(--muted);
-  font-size: 0.92rem;
-  transition: border-color 0.25s;
+  font-size: 0.93rem;
+  border-bottom: 1px solid var(--line);
 }
-.ruled li:hover { border-color: var(--accent); }
+.ruled li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 21px;
+  width: 10px;
+  height: 1px;
+  background: var(--orange);
+  transition: width 0.3s;
+}
+.ruled li:hover::before { width: 18px; }
 
-/* Rows separated by lines, used on the events page. */
-.rows { border-top: 1px solid var(--line); }
+/* Rows for the events page. */
 .row {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
-  gap: 14px;
-  padding: 26px 0;
+  gap: 16px;
+  padding: 34px 0;
   border-bottom: 1px solid var(--line);
+  transition: padding-left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
+.row:first-child { border-top: 1px solid var(--line); }
+.row:hover { padding-left: 16px; }
 
-/* Grey striped box standing in for a photo we do not have yet.
-   To use a real photo, swap the whole div for an <img>. */
+/* Striped box standing in for a photo we do not have yet.
+   To use a real photo swap the whole div for an <img> with the
+   same class, like <img src="img/robot.jpg" class="photo wide" alt=""> */
 .photo {
+  position: relative;
   background:
-    repeating-linear-gradient(45deg, transparent, transparent 10px,
-      rgba(110, 108, 102, 0.22) 10px, rgba(110, 108, 102, 0.22) 20px),
-    var(--surface);
+    repeating-linear-gradient(45deg, transparent, transparent 11px,
+      rgba(154, 160, 196, 0.07) 11px, rgba(154, 160, 196, 0.07) 22px),
+    var(--navy-800);
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 20px;
+  padding: 24px;
   aspect-ratio: 16 / 9;
+  overflow: hidden;
+  object-fit: cover;
 }
 .photo.square { aspect-ratio: 1 / 1; }
 .photo.wide { aspect-ratio: 4 / 3; }
+.photo.tall { aspect-ratio: 3 / 4; }
 
-/* Big number used for the stats on the about page. */
-.stat-num {
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: clamp(2.2rem, 4vw, 3rem);
-  line-height: 1.1;
-  letter-spacing: -0.03em;
-  color: var(--accent);
+/* Corner brackets, makes a plain box look like a viewfinder. */
+.photo::before, .photo::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-color: var(--orange);
+  border-style: solid;
+  opacity: 0.5;
+  transition: width 0.4s, height 0.4s, opacity 0.4s;
 }
+.photo::before { top: 10px; left: 10px; border-width: 1px 0 0 1px; }
+.photo::after { bottom: 10px; right: 10px; border-width: 0 1px 1px 0; }
+.photo:hover::before, .photo:hover::after { width: 26px; height: 26px; opacity: 1; }
 
-/* ---- 4. HEADER --------------------------------------------- */
+/* ---- 7. HEADER --------------------------------------------- */
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 50;
-  background: rgba(20, 19, 17, 0.85);
-  backdrop-filter: blur(12px);
+  z-index: 100;
+  background: rgba(3, 4, 26, 0.72);
+  backdrop-filter: blur(16px) saturate(140%);
   border-bottom: 1px solid var(--line);
 }
 .nav-bar {
@@ -192,154 +354,362 @@ section:last-of-type { border-bottom: 0; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  height: 70px;
 }
-.logo { display: flex; align-items: baseline; gap: 8px; }
-.logo-num { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent); }
-.logo-name { font-family: var(--font-display); font-weight: 500; }
+.logo { display: flex; align-items: center; gap: 10px; }
 
-.nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
+/* The cougar logo. Save the orange PNG as img/logo.png and it
+   shows up here and in the footer. */
+.logo-img { height: 32px; width: auto; transition: opacity 0.25s; }
+.logo:hover .logo-img { opacity: 0.8; }
+.footer-logo { height: 54px; width: auto; }
+.logo-num {
+  font-family: var(--tech);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--orange);
+  letter-spacing: 0.04em;
+}
+.logo-name {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
 .nav-links > li { position: relative; }
-.nav-links a {
+.nav-links > li > a {
+  position: relative;
   display: block;
-  padding: 8px 12px;
-  font-size: 0.9rem;
+  padding: 10px 14px;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--muted);
-  transition: color 0.2s;
+  transition: color 0.25s;
 }
-.nav-links a:hover, .nav-links a.active { color: var(--text); }
+.nav-links > li > a::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 4px;
+  height: 1px;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-links > li > a:hover { color: var(--text); }
+.nav-links > li > a:hover::after { transform: scaleX(1); transform-origin: left; }
+.nav-links > li > a.active { color: var(--orange); }
 
-/* Dropdown for About Us, Outreach and Community */
 .submenu {
   position: absolute;
   top: 100%;
   left: 0;
-  min-width: 210px;
-  background: var(--surface);
+  min-width: 220px;
+  background: var(--navy-800);
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 4px;
   padding: 6px;
   list-style: none;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-6px);
-  transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+  transform: translateY(-8px);
+  transition: opacity 0.25s, visibility 0.25s, transform 0.25s;
 }
 .nav-links > li:hover .submenu,
 .nav-links > li:focus-within .submenu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
+  opacity: 1; visibility: visible; transform: translateY(0);
 }
-.submenu a { color: var(--faint); border-radius: 6px; }
-.submenu a:hover { background: var(--raised); color: var(--text); }
+.submenu a {
+  display: block;
+  padding: 10px 14px;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faint);
+  border-radius: 3px;
+  transition: background 0.2s, color 0.2s, padding-left 0.25s;
+}
+.submenu a:hover { background: var(--navy-700); color: var(--orange); padding-left: 20px; }
 
 .menu-btn {
   display: none;
   background: none;
-  border: 1px solid var(--line);
-  border-radius: 8px;
+  border: 1px solid var(--navy-600);
+  border-radius: 2px;
   color: var(--text);
-  padding: 8px 14px;
+  padding: 9px 16px;
   cursor: pointer;
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
-/* ---- 5. FORM ----------------------------------------------- */
-.field { margin-bottom: 20px; }
-.field label { display: block; font-size: 0.9rem; color: var(--muted); margin-bottom: 7px; }
+/* Thin orange bar across the top showing how far down the page you are. */
+.scroll-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: linear-gradient(90deg, var(--orange), var(--orange-hot));
+  z-index: 200;
+}
+
+/* ---- 8. HERO ----------------------------------------------- */
+.hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  padding: 80px 0 70px;
+  overflow: hidden;
+}
+
+/* Engineering grid that drifts slowly. */
+.hero-grid {
+  position: absolute;
+  inset: -50%;
+  background-image:
+    linear-gradient(rgba(154, 160, 196, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(154, 160, 196, 0.055) 1px, transparent 1px);
+  background-size: 64px 64px;
+  animation: drift 24s linear infinite;
+  pointer-events: none;
+}
+@keyframes drift {
+  to { transform: translate(64px, 64px); }
+}
+
+/* Orange glow behind the headline. */
+.hero-glow {
+  position: absolute;
+  width: 760px;
+  height: 760px;
+  left: -180px;
+  top: 50%;
+  margin-top: -380px;
+  background: radial-gradient(circle, rgba(245, 125, 39, 0.17), transparent 62%);
+  pointer-events: none;
+  animation: breathe 9s ease-in-out infinite;
+}
+@keyframes breathe {
+  0%, 100% { opacity: 0.75; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+/* Fades the grid out at the bottom so it does not just stop. */
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 180px;
+  background: linear-gradient(transparent, var(--navy-900));
+  pointer-events: none;
+}
+
+.hero-inner { position: relative; z-index: 3; }
+
+/* ---- 9. MARQUEE TICKER ------------------------------------- */
+.ticker {
+  position: relative;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--navy-800);
+  overflow: hidden;
+  padding: 16px 0;
+}
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: slide 38s linear infinite;
+}
+.ticker:hover .ticker-track { animation-play-state: paused; }
+.ticker-track span {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0 28px;
+  white-space: nowrap;
+}
+.ticker-track span::after {
+  content: "/";
+  color: var(--orange);
+  margin-left: 28px;
+}
+@keyframes slide {
+  to { transform: translateX(-50%); }
+}
+
+/* ---- 10. STATS --------------------------------------------- */
+.stat-num {
+  font-family: var(--tech);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--orange);
+}
+
+/* ---- 11. FORMS --------------------------------------------- */
+.field { margin-bottom: 22px; }
+.field label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 9px;
+}
 .field input, .field textarea {
   width: 100%;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 11px 14px;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--navy-600);
+  padding: 11px 2px;
   color: var(--text);
-  font-family: var(--font-body);
-  font-size: 0.92rem;
-  transition: border-color 0.2s;
+  font-family: var(--body);
+  font-size: 0.95rem;
+  transition: border-color 0.3s;
 }
-.field input:focus, .field textarea:focus { outline: none; border-color: var(--faint); }
-.field textarea { resize: vertical; min-height: 130px; }
+.field input:focus, .field textarea:focus {
+  outline: none;
+  border-bottom-color: var(--orange);
+}
+.field textarea { resize: vertical; min-height: 120px; }
 
-/* ---- 6. FOOTER --------------------------------------------- */
-.site-footer { border-top: 1px solid var(--line); padding: 60px 0 32px; }
-.footer-grid { display: grid; gap: 40px; grid-template-columns: 1fr 1fr; }
-.footer-list { list-style: none; margin-top: 14px; }
-.footer-list li { color: var(--muted); font-size: 0.9rem; margin-bottom: 7px; }
-.footer-list a { transition: color 0.2s; }
-.footer-list a:hover { color: var(--text); }
+/* ---- 12. FOOTER -------------------------------------------- */
+.site-footer {
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid var(--line);
+  padding: 80px 0 36px;
+  background: var(--navy-800);
+}
+.footer-grid { display: grid; gap: 48px; grid-template-columns: 1.3fr 1fr; }
+.footer-list { list-style: none; margin-top: 18px; }
+.footer-list li { color: var(--muted); font-size: 0.92rem; margin-bottom: 10px; }
+.footer-list a { transition: color 0.25s, padding-left 0.25s; }
+.footer-list a:hover { color: var(--orange); padding-left: 6px; }
 .footer-bottom {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 12px;
-  margin-top: 48px;
-  padding-top: 24px;
+  gap: 14px;
+  margin-top: 64px;
+  padding-top: 26px;
   border-top: 1px solid var(--line);
 }
 
-/* ---- 7. ANIMATION ------------------------------------------
-   Put class="reveal" on anything and it fades up when you
-   scroll to it. Handled by js/main.js.
-   Put class="reveal-group" on a grid and its children appear
-   one after another instead of all at once.
+/* Huge faint team number sitting behind the footer. */
+.footer-ghost {
+  font-family: var(--tech);
+  font-weight: 900;
+  font-size: clamp(5rem, 20vw, 16rem);
+  line-height: 0.8;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(154, 160, 196, 0.07);
+  text-align: center;
+  margin-top: 40px;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ---- 13. ANIMATIONS ----------------------------------------
+   Put class="reveal" on anything and it fades up when you scroll
+   to it. Add reveal-group to a parent and its children come in
+   one after another. Both handled in js/main.js.
    ------------------------------------------------------------ */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateY(32px);
+  filter: blur(6px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.9s ease;
 }
-.reveal.visible { opacity: 1; transform: none; }
+.reveal.visible { opacity: 1; transform: none; filter: none; }
 
-.reveal-group > *:nth-child(2) { transition-delay: 0.08s; }
-.reveal-group > *:nth-child(3) { transition-delay: 0.16s; }
-.reveal-group > *:nth-child(4) { transition-delay: 0.24s; }
+.reveal-group > * { transition-delay: 0ms; }
+.reveal-group.visible > *:nth-child(1) { transition-delay: 0ms; }
+.reveal-group.visible > *:nth-child(2) { transition-delay: 90ms; }
+.reveal-group.visible > *:nth-child(3) { transition-delay: 180ms; }
+.reveal-group.visible > *:nth-child(4) { transition-delay: 270ms; }
+.reveal-group.visible > *:nth-child(5) { transition-delay: 360ms; }
 
-/* ---- 8. PHONES AND TABLETS --------------------------------- */
-@media (max-width: 900px) {
-  .split, .split-even { grid-template-columns: 1fr; gap: 32px; }
+/* Headline that comes in word by word. js/main.js splits the text
+   into .word spans for us. */
+.word { display: inline-block; overflow: hidden; vertical-align: top; }
+.word > span {
+  display: inline-block;
+  transform: translateY(105%);
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.split-in.visible .word > span { transform: none; }
+.split-in.visible .word:nth-child(1) > span { transition-delay: 0.05s; }
+.split-in.visible .word:nth-child(2) > span { transition-delay: 0.13s; }
+.split-in.visible .word:nth-child(3) > span { transition-delay: 0.21s; }
+.split-in.visible .word:nth-child(4) > span { transition-delay: 0.29s; }
+.split-in.visible .word:nth-child(5) > span { transition-delay: 0.37s; }
+.split-in.visible .word:nth-child(6) > span { transition-delay: 0.45s; }
+
+/* Elements that drift slightly as you move the mouse. Set
+   data-parallax="0.03" in the HTML to change how much. */
+.parallax { transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); will-change: transform; }
+
+/* ---- 14. PHONES AND TABLETS -------------------------------- */
+@media (max-width: 980px) {
+  .split, .split-even { grid-template-columns: 1fr; gap: 40px; }
   .g-4, .g-3 { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 760px) {
-  section { padding: 56px 0; }
+  section { padding: 72px 0; }
+  .hero { min-height: auto; padding: 70px 0 60px; }
   .menu-btn { display: block; }
   .nav-links {
     display: none;
     position: absolute;
-    top: 64px;
+    top: 70px;
     left: calc(var(--gutter) * -1);
     right: calc(var(--gutter) * -1);
     flex-direction: column;
     align-items: stretch;
     gap: 0;
-    background: var(--bg);
+    background: var(--navy-800);
     border-bottom: 1px solid var(--line);
-    padding: 8px var(--gutter) 16px;
+    padding: 10px var(--gutter) 20px;
   }
   .nav-links.open { display: flex; }
   .submenu {
-    position: static;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    border: 0;
-    background: none;
-    padding: 0 0 0 14px;
-    min-width: 0;
+    position: static; opacity: 1; visibility: visible;
+    transform: none; border: 0; background: none;
+    padding: 0 0 0 16px; min-width: 0;
   }
   .g-2, .g-3, .g-4 { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr; }
+  .outline { -webkit-text-stroke-width: 1px; }
 }
 
-/* Respect people who turn animations off in their OS settings. */
+/* Anyone who turns animations off in their OS settings gets a
+   plain static site instead. */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .reveal { opacity: 1; transform: none; transition: none; }
+  .reveal, .split-in .word > span { opacity: 1; transform: none; filter: none; transition: none; }
+  .hero-grid, .hero-glow, .ticker-track { animation: none; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
