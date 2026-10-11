@@ -1,0 +1,30 @@
+{
+  "intro": "Competing is half of what we do. The rest is making sure robotics does not stop at our build room door.",
+  "programs": [
+    {
+      "title": "School Demos",
+      "description": "We bring the robot into classrooms and assemblies so students can drive it themselves. For a lot of them it is the first time engineering looks like something they could actually do.",
+      "image": ""
+    },
+    {
+      "title": "Workshops",
+      "description": "Hands-on sessions on CAD, wiring, and programming, run by students for students.",
+      "image": ""
+    },
+    {
+      "title": "Mentoring",
+      "description": "We support newer and younger teams in our area with build advice, spare parts, and competition help.",
+      "image": ""
+    },
+    {
+      "title": "Community Events",
+      "description": "TODO: describe the community events the team shows up to.",
+      "image": ""
+    }
+  ],
+  "stats": [
+    { "value": "30+", "label": "Students on the team" },
+    { "value": "TODO", "label": "Students reached through outreach" },
+    { "value": "TODO", "label": "Events attended" }
+  ]
+}

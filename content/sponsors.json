@@ -1,0 +1,23 @@
+{
+  "intro": "Our season is only possible because of the organizations that back us. Sponsorship pays for parts, registration, and travel, and it puts engineering tools in the hands of students who would not otherwise have them.",
+  "tiers": [
+    {
+      "name": "Lead Sponsors",
+      "sponsors": [
+        { "name": "TODO: sponsor name", "logo": "", "url": "" }
+      ]
+    },
+    {
+      "name": "Supporting Sponsors",
+      "sponsors": [
+        { "name": "TODO: sponsor name", "logo": "", "url": "" }
+      ]
+    },
+    {
+      "name": "Community Partners",
+      "sponsors": [
+        { "name": "TODO: partner name", "logo": "", "url": "" }
+      ]
+    }
+  ]
+}
