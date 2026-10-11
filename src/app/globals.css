@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+/* ===========================================================
+   SITE COLORS. Change these to rebrand. Everything reads
+   from these values, so you only edit them here.
+   =========================================================== */
+:root {
+  --background: #ffffff;   /* page background */
+  --surface: #f5f6f8;      /* cards, alternating sections */
+  --foreground: #16181d;   /* main text */
+  --muted: #5c636e;        /* secondary text */
+  --accent: #1a4fa0;       /* links, buttons (team blue) */
+  --accent-strong: #143d7d; /* button hover */
+  --border: #e2e5ea;       /* hairlines */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-border: var(--border);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* Highlights content that still has a TODO placeholder, so unfinished
+   text is obvious while editing and easy to find before launch. */
+.todo {
+  color: #8a5a00;
+  background: #fff6e0;
+  border: 1px dashed #e0b355;
+  border-radius: 0.25rem;
+  padding: 0 0.3rem;
+  font-size: 0.85em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
