@@ -1,17 +1,5 @@
-/* ============================================================
-   NACI ROBOTICS 2935
-
-   1. Phone menu
-   2. Scroll progress bar
-   3. Fade in on scroll
-   4. Headline reveal, word by word
-   5. Counting numbers
-   6. Mouse parallax
-   ============================================================ */
-
 var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-/* ---- 1. PHONE MENU ----------------------------------------- */
 var menuBtn = document.querySelector(".menu-btn");
 var navLinks = document.querySelector(".nav-links");
 
@@ -23,9 +11,6 @@ if (menuBtn && navLinks) {
   });
 }
 
-/* ---- 2. SCROLL PROGRESS BAR --------------------------------
-   The thin orange line across the very top of the window.
-   ------------------------------------------------------------ */
 var bar = document.querySelector(".scroll-bar");
 
 if (bar) {
@@ -39,10 +24,6 @@ if (bar) {
   updateBar();
 }
 
-/* ---- 3. FADE IN ON SCROLL ----------------------------------
-   Anything with class="reveal" starts hidden and fades up when
-   you scroll to it. Just add the class, no other code needed.
-   ------------------------------------------------------------ */
 var revealItems = document.querySelectorAll(".reveal, .reveal-group, .split-in");
 
 if ("IntersectionObserver" in window && !reducedMotion) {
@@ -62,14 +43,9 @@ if ("IntersectionObserver" in window && !reducedMotion) {
   revealItems.forEach(function (item) { item.classList.add("visible"); });
 }
 
-/* ---- 4. HEADLINE REVEAL ------------------------------------
-   Any element with class="split-in" gets its text chopped into
-   words, and each word slides up one after the other.
-   ------------------------------------------------------------ */
 document.querySelectorAll(".split-in").forEach(function (heading) {
   if (reducedMotion) return;
 
-  /* Walk the child nodes so coloured <span> parts keep their colour. */
   var pieces = [];
   heading.childNodes.forEach(function (node) {
     var text = (node.textContent || "").trim();
@@ -90,11 +66,6 @@ document.querySelectorAll(".split-in").forEach(function (heading) {
     .join(" ");
 });
 
-/* ---- 5. COUNTING NUMBERS -----------------------------------
-   Put data-count="200" on an element and it counts up from zero
-   when it scrolls into view. Add data-suffix="+" for the plus.
-   Years like 2009 are left alone, see data-count="none".
-   ------------------------------------------------------------ */
 var counters = document.querySelectorAll("[data-count]");
 
 if ("IntersectionObserver" in window && !reducedMotion) {
@@ -115,7 +86,7 @@ if ("IntersectionObserver" in window && !reducedMotion) {
         var step = function (now) {
           if (!started) started = now;
           var p = Math.min((now - started) / duration, 1);
-          /* ease out, fast at first then settles */
+
           var eased = 1 - Math.pow(1 - p, 3);
           el.textContent = Math.round(target * eased) + suffix;
           if (p < 1) requestAnimationFrame(step);
@@ -128,11 +99,6 @@ if ("IntersectionObserver" in window && !reducedMotion) {
   counters.forEach(function (el) { countWatcher.observe(el); });
 }
 
-/* ---- 6. MOUSE PARALLAX -------------------------------------
-   Anything with class="parallax" drifts a little as the mouse
-   moves. data-parallax="0.04" controls how far it moves.
-   Skipped on touch screens, where there is no mouse.
-   ------------------------------------------------------------ */
 var parallaxItems = document.querySelectorAll(".parallax");
 var hasMouse = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
@@ -160,10 +126,6 @@ if (parallaxItems.length && hasMouse && !reducedMotion) {
   });
 }
 
-/* ---- 7. LOGO FALLBACK --------------------------------------
-   Until img/logo.png exists, show the team name as text instead
-   of a broken image icon.
-   ------------------------------------------------------------ */
 document.querySelectorAll(".logo-img, .footer-logo").forEach(function (img) {
   var swapForText = function () {
     var text = document.createElement("span");
@@ -177,12 +139,9 @@ document.querySelectorAll(".logo-img, .footer-logo").forEach(function (img) {
 
   img.addEventListener("error", swapForText);
 
-  /* The image may have already failed before this script ran, in
-     which case the error event is long gone. Check for that too. */
   if (img.complete && img.naturalWidth === 0) swapForText();
 });
 
-/* ---- 8. FOOTER YEAR ---------------------------------------- */
 var yearSpot = document.querySelector("[data-year]");
 if (yearSpot) {
   yearSpot.textContent = new Date().getFullYear();

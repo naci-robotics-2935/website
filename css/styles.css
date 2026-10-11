@@ -1,36 +1,12 @@
-/* ============================================================
-   NACI ROBOTICS 2935
-   One stylesheet for the whole site.
-
-   Contents
-     1. Colours and fonts   <- change these to rebrand
-     2. Base
-     3. Text
-     4. Layout
-     5. Buttons and links
-     6. Cards, lists, photos
-     7. Header
-     8. Hero
-     9. Marquee ticker
-    10. Stats
-    11. Forms
-    12. Footer
-    13. Animations
-    14. Phones and tablets
-   ============================================================ */
-
-/* ---- 1. COLOURS AND FONTS ---------------------------------
-   Navy and orange are taken from the original NACI site.
-   ------------------------------------------------------------ */
 :root {
-  --navy-900: #03041a;   /* deepest, page background */
-  --navy-800: #050623;   /* the original NACI navy */
-  --navy-700: #0a0d33;   /* cards */
-  --navy-600: #141a4d;   /* hover, borders that need to show */
+  --navy-900: #03041a;
+  --navy-800: #050623;
+  --navy-700: #0a0d33;
+  --navy-600: #141a4d;
 
-  --orange: #f57d27;     /* the NACI accent */
+  --orange: #f57d27;
   --orange-hot: #ff9442;
-  --blue: #1d67cd;       /* secondary accent from the old site */
+  --blue: #1d67cd;
 
   --text: #eef1ff;
   --muted: #9aa0c4;
@@ -39,14 +15,13 @@
 
   --display: "Space Grotesk", system-ui, sans-serif;
   --body: "Manrope", system-ui, sans-serif;
-  --tech: "Orbitron", system-ui, sans-serif;   /* numbers only */
+  --tech: "Orbitron", system-ui, sans-serif;
   --mono: "JetBrains Mono", monospace;
 
   --wrap: 1180px;
   --gutter: 24px;
 }
 
-/* ---- 2. BASE ----------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; }
@@ -64,8 +39,6 @@ body {
   overflow-x: hidden;
 }
 
-/* A faint grain over everything. This is the thing that stops a
-   dark site looking flat and cheap. */
 body::after {
   content: "";
   position: fixed;
@@ -83,13 +56,11 @@ img { max-width: 100%; display: block; }
 
 ::selection { background: var(--orange); color: var(--navy-900); }
 
-/* Thin orange scrollbar */
 ::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { background: var(--navy-900); }
 ::-webkit-scrollbar-thumb { background: var(--navy-600); border-radius: 10px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--orange); }
 
-/* ---- 3. TEXT ----------------------------------------------- */
 .display {
   font-family: var(--display);
   font-weight: 700;
@@ -104,7 +75,6 @@ img { max-width: 100%; display: block; }
 .h-md   { font-size: clamp(1.4rem, 2.6vw, 1.9rem); }
 .h-sm   { font-size: 1.15rem; letter-spacing: -0.02em; }
 
-/* Outlined text, used for the second line of a big headline. */
 .outline {
   color: transparent;
   -webkit-text-stroke: 1.5px var(--faint);
@@ -112,7 +82,6 @@ img { max-width: 100%; display: block; }
 
 .accent { color: var(--orange); }
 
-/* Small uppercase mono label. */
 .eyebrow {
   font-family: var(--mono);
   font-size: 0.68rem;
@@ -123,7 +92,6 @@ img { max-width: 100%; display: block; }
 }
 .eyebrow.hot { color: var(--orange); }
 
-/* The 01 / 02 / 03 markers before a section heading. */
 .section-no {
   font-family: var(--tech);
   font-size: 0.72rem;
@@ -141,7 +109,6 @@ p { color: var(--muted); }
 .mt-3 { margin-top: 32px; }
 .mt-4 { margin-top: 48px; }
 
-/* ---- 4. LAYOUT --------------------------------------------- */
 .wrap {
   width: 100%;
   max-width: var(--wrap);
@@ -151,7 +118,6 @@ p { color: var(--muted); }
 
 section { padding: 110px 0; position: relative; }
 
-/* A hairline that fades out at both ends. Cleaner than a full border. */
 .rule {
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--line) 20%, var(--line) 80%, transparent);
@@ -172,7 +138,6 @@ section { padding: 110px 0; position: relative; }
   gap: 20px;
 }
 
-/* ---- 5. BUTTONS AND LINKS ---------------------------------- */
 .btn {
   position: relative;
   display: inline-flex;
@@ -189,7 +154,6 @@ section { padding: 110px 0; position: relative; }
   transition: color 0.3s, border-color 0.3s;
 }
 
-/* Orange fill that wipes in from the left on hover. */
 .btn::before {
   content: "";
   position: absolute;
@@ -216,7 +180,6 @@ section { padding: 110px 0; position: relative; }
 }
 .btn-ghost:hover { color: var(--navy-900); border-color: var(--orange); }
 
-/* Link with an orange line that draws in from the left. */
 .link-line {
   position: relative;
   display: inline-block;
@@ -241,7 +204,6 @@ section { padding: 110px 0; position: relative; }
 }
 .link-line:hover::after { transform: scaleX(1); transform-origin: left; }
 
-/* ---- 6. CARDS, LISTS, PHOTOS ------------------------------- */
 .card {
   position: relative;
   background: linear-gradient(160deg, var(--navy-800), var(--navy-900));
@@ -251,7 +213,7 @@ section { padding: 110px 0; position: relative; }
   overflow: hidden;
   transition: border-color 0.4s, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
-/* Orange bar that grows down the left edge on hover. */
+
 .card::before {
   content: "";
   position: absolute;
@@ -287,7 +249,6 @@ section { padding: 110px 0; position: relative; }
 }
 .ruled li:hover::before { width: 18px; }
 
-/* Rows for the events page. */
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -301,9 +262,6 @@ section { padding: 110px 0; position: relative; }
 .row:first-child { border-top: 1px solid var(--line); }
 .row:hover { padding-left: 16px; }
 
-/* Striped box standing in for a photo we do not have yet.
-   To use a real photo swap the whole div for an <img> with the
-   same class, like <img src="img/robot.jpg" class="photo wide" alt=""> */
 .photo {
   position: relative;
   background:
@@ -325,7 +283,6 @@ section { padding: 110px 0; position: relative; }
 .photo.wide { aspect-ratio: 4 / 3; }
 .photo.tall { aspect-ratio: 3 / 4; }
 
-/* Corner brackets, makes a plain box look like a viewfinder. */
 .photo::before, .photo::after {
   content: "";
   position: absolute;
@@ -340,7 +297,6 @@ section { padding: 110px 0; position: relative; }
 .photo::after { bottom: 10px; right: 10px; border-width: 0 1px 1px 0; }
 .photo:hover::before, .photo:hover::after { width: 26px; height: 26px; opacity: 1; }
 
-/* ---- 7. HEADER --------------------------------------------- */
 .site-header {
   position: sticky;
   top: 0;
@@ -358,8 +314,6 @@ section { padding: 110px 0; position: relative; }
 }
 .logo { display: flex; align-items: center; gap: 10px; }
 
-/* The cougar logo. Save the orange PNG as img/logo.png and it
-   shows up here and in the footer. */
 .logo-img { height: 32px; width: auto; transition: opacity 0.25s; }
 .logo:hover .logo-img { opacity: 0.8; }
 .footer-logo { height: 54px; width: auto; }
@@ -453,7 +407,6 @@ section { padding: 110px 0; position: relative; }
   text-transform: uppercase;
 }
 
-/* Thin orange bar across the top showing how far down the page you are. */
 .scroll-bar {
   position: fixed;
   top: 0;
@@ -466,7 +419,6 @@ section { padding: 110px 0; position: relative; }
   z-index: 200;
 }
 
-/* ---- 8. HERO ----------------------------------------------- */
 .hero {
   position: relative;
   min-height: 92vh;
@@ -476,7 +428,6 @@ section { padding: 110px 0; position: relative; }
   overflow: hidden;
 }
 
-/* Engineering grid that drifts slowly. */
 .hero-grid {
   position: absolute;
   inset: -50%;
@@ -491,7 +442,6 @@ section { padding: 110px 0; position: relative; }
   to { transform: translate(64px, 64px); }
 }
 
-/* Orange glow behind the headline. */
 .hero-glow {
   position: absolute;
   width: 760px;
@@ -508,7 +458,6 @@ section { padding: 110px 0; position: relative; }
   50% { opacity: 1; transform: scale(1.1); }
 }
 
-/* Fades the grid out at the bottom so it does not just stop. */
 .hero::after {
   content: "";
   position: absolute;
@@ -520,7 +469,6 @@ section { padding: 110px 0; position: relative; }
 
 .hero-inner { position: relative; z-index: 3; }
 
-/* ---- 9. MARQUEE TICKER ------------------------------------- */
 .ticker {
   position: relative;
   border-top: 1px solid var(--line);
@@ -553,7 +501,6 @@ section { padding: 110px 0; position: relative; }
   to { transform: translateX(-50%); }
 }
 
-/* ---- 10. STATS --------------------------------------------- */
 .stat-num {
   font-family: var(--tech);
   font-weight: 700;
@@ -563,7 +510,6 @@ section { padding: 110px 0; position: relative; }
   color: var(--orange);
 }
 
-/* ---- 11. FORMS --------------------------------------------- */
 .field { margin-bottom: 22px; }
 .field label {
   display: block;
@@ -591,7 +537,6 @@ section { padding: 110px 0; position: relative; }
 }
 .field textarea { resize: vertical; min-height: 120px; }
 
-/* ---- 12. FOOTER -------------------------------------------- */
 .site-footer {
   position: relative;
   z-index: 2;
@@ -614,7 +559,6 @@ section { padding: 110px 0; position: relative; }
   border-top: 1px solid var(--line);
 }
 
-/* Huge faint team number sitting behind the footer. */
 .footer-ghost {
   font-family: var(--tech);
   font-weight: 900;
@@ -628,11 +572,6 @@ section { padding: 110px 0; position: relative; }
   pointer-events: none;
 }
 
-/* ---- 13. ANIMATIONS ----------------------------------------
-   Put class="reveal" on anything and it fades up when you scroll
-   to it. Add reveal-group to a parent and its children come in
-   one after another. Both handled in js/main.js.
-   ------------------------------------------------------------ */
 .reveal {
   opacity: 0;
   transform: translateY(32px);
@@ -650,8 +589,6 @@ section { padding: 110px 0; position: relative; }
 .reveal-group.visible > *:nth-child(4) { transition-delay: 270ms; }
 .reveal-group.visible > *:nth-child(5) { transition-delay: 360ms; }
 
-/* Headline that comes in word by word. js/main.js splits the text
-   into .word spans for us. */
 .word { display: inline-block; overflow: hidden; vertical-align: top; }
 .word > span {
   display: inline-block;
@@ -666,11 +603,8 @@ section { padding: 110px 0; position: relative; }
 .split-in.visible .word:nth-child(5) > span { transition-delay: 0.37s; }
 .split-in.visible .word:nth-child(6) > span { transition-delay: 0.45s; }
 
-/* Elements that drift slightly as you move the mouse. Set
-   data-parallax="0.03" in the HTML to change how much. */
 .parallax { transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); will-change: transform; }
 
-/* ---- 14. PHONES AND TABLETS -------------------------------- */
 @media (max-width: 980px) {
   .split, .split-even { grid-template-columns: 1fr; gap: 40px; }
   .g-4, .g-3 { grid-template-columns: repeat(2, 1fr); }
@@ -704,8 +638,6 @@ section { padding: 110px 0; position: relative; }
   .outline { -webkit-text-stroke-width: 1px; }
 }
 
-/* Anyone who turns animations off in their OS settings gets a
-   plain static site instead. */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal, .split-in .word > span { opacity: 1; transform: none; filter: none; transition: none; }
