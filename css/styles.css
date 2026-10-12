@@ -589,6 +589,145 @@ section { padding: 118px 0; position: relative; }
 }
 .dot.is-active .dot-year { color: var(--accent); }
 
+.photo-empty {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  text-align: center;
+  padding: 30px;
+  border-radius: var(--r);
+  border: 1px dashed rgba(255, 255, 255, 0.16);
+  background:
+    radial-gradient(70% 70% at 50% 0%, rgba(245, 125, 39, 0.1), transparent 70%),
+    linear-gradient(180deg, var(--panel-2), var(--panel));
+  box-shadow: var(--inset);
+  aspect-ratio: 4 / 3;
+  color: var(--faint);
+}
+.photo-empty strong {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 2.4rem;
+  letter-spacing: -0.04em;
+  color: rgba(255, 255, 255, 0.16);
+}
+.photo-empty span { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; }
+
+.game-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 46px;
+  padding: 0 16px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--line);
+  background: var(--panel);
+  box-shadow: var(--inset);
+}
+.game-mark img { height: 26px; width: auto; object-fit: contain; }
+
+.first-mark {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  margin-bottom: 30px;
+  filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.6));
+}
+
+.feature {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 0;
+  border-radius: var(--r);
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, var(--panel-2), var(--panel));
+  box-shadow: var(--inset), var(--lift);
+  overflow: hidden;
+}
+.feature-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 56px 44px;
+  background:
+    radial-gradient(80% 80% at 30% 20%, rgba(245, 125, 39, 0.16), transparent 70%),
+    rgba(255, 255, 255, 0.03);
+  border-right: 1px solid var(--line);
+}
+.feature-logo img { max-height: 108px; max-width: 100%; width: auto; object-fit: contain; }
+.feature-body { padding: 48px 44px; }
+
+.sponsor-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border-radius: var(--r);
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, var(--panel-2), var(--panel));
+  box-shadow: var(--inset), var(--lift);
+  overflow: hidden;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s, box-shadow 0.5s;
+}
+.sponsor-card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(245, 125, 39, 0.34);
+  box-shadow: var(--inset), 0 34px 80px -32px rgba(0, 0, 0, 0.98), 0 0 48px -22px var(--accent-glow);
+}
+.sponsor-card .mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 30px;
+  min-height: 132px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--line);
+}
+.sponsor-card .mark img {
+  max-height: 56px;
+  max-width: 78%;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+  transition: opacity 0.35s;
+}
+.sponsor-card:hover .mark img { opacity: 1; }
+.sponsor-card .body { padding: 28px 28px 32px; }
+
+.honour {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 24px;
+  align-items: baseline;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+  transition: padding-left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.honour:hover { padding-left: 12px; }
+.honour-year {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.35rem;
+  letter-spacing: -0.03em;
+  color: var(--accent);
+}
+.honour-list { list-style: none; }
+.honour-list li { color: var(--muted); font-size: 0.93rem; }
+.honour-list li + li { margin-top: 5px; }
+.honour.is-banner .honour-year { color: #fff; }
+.honour.is-banner .honour-list li:first-child { color: var(--accent); font-weight: 600; }
+
+@media (max-width: 1000px) {
+  .feature { grid-template-columns: 1fr; }
+  .feature-logo { border-right: 0; border-bottom: 1px solid var(--line); padding: 44px 30px; }
+  .feature-body { padding: 34px 30px; }
+  .honour { grid-template-columns: 70px 1fr; gap: 16px; }
+}
+
 .logo-tile {
   display: flex;
   align-items: center;
