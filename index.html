@@ -38,7 +38,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 
@@ -91,8 +91,6 @@
     </div>
     <div class="hero-scrim"></div>
 
-    <div class="scroll-cue"><span class="eyebrow">Scroll</span></div>
-
     <div class="wrap hero-content">
       <img src="img/logo.png" alt="NACI Robotics" class="hero-logo reveal">
       <h1 class="display h-hero split-in">We Don&rsquo;t Just <span class="outline">Build Robots</span></h1>
@@ -141,38 +139,35 @@
     </div>
   </section>
 
-
-  <figure class="band-image reveal">
-    <img src="img/team-crescendo.jpg" alt="NACI Robotics team photo at the CRESCENDO district event" loading="lazy">
-    <figcaption class="wrap"><p class="eyebrow">The team at a district event</p></figcaption>
-  </figure>
-  <section class="band-dark">
-    <div class="stats-watermark">2935</div>
+  <section style="padding-top:0">
+    <div class="wrap">
+    <figure class="media reveal">
+      <img src="img/team-crescendo.jpg" alt="NACI Robotics team photo at the CRESCENDO district event" loading="lazy">
+      <figcaption><p class="tag">The team at a district event</p></figcaption>
+    </figure>
+    </div>
+  </section>
+  <section>
     <div class="wrap">
       <div class="stats-head reveal">
-        <p class="eyebrow hot">By the numbers</p>
-        <p class="eyebrow">Since 2009</p>
+        <p class="tag hot">By the numbers</p>
       </div>
-      <div class="stat-row reveal">
+      <div class="stat-grid reveal reveal-group">
         <div class="stat">
           <span class="stat-num" data-count="200" data-suffix="+">0</span>
           <span class="stat-label">Members and alumni</span>
-          <span class="stat-bar"></span>
         </div>
         <div class="stat">
           <span class="stat-num">2009</span>
           <span class="stat-label">Rookie year</span>
-          <span class="stat-bar"></span>
         </div>
         <div class="stat">
           <span class="stat-num" data-count="15">0</span>
           <span class="stat-label">FRC seasons</span>
-          <span class="stat-bar"></span>
         </div>
         <div class="stat">
           <span class="stat-num" data-count="18">0</span>
           <span class="stat-label">Awards won</span>
-          <span class="stat-bar"></span>
         </div>
       </div>
     </div>
@@ -190,7 +185,7 @@
           <div class="split-even">
             <img src="img/azure-2025.jpg" alt="Azure, our 2025 REEFSCAPE robot, driving on the competition field" class="photo wide" loading="lazy">
             <div class="slide-body">
-              <p class="eyebrow hot">2025 &nbsp;/&nbsp; Reefscape</p>
+              <p class="tag hot">2025 &nbsp;/&nbsp; Reefscape</p>
               <h3 class="display h-lg mt-1">Azure</h3>
               <p class="mt-2">
                 Azure took us through the Ontario district season and on to the
@@ -210,7 +205,7 @@
           <div class="split-even">
             <img src="img/crescendo-2024.jpg" alt="Our 2024 CRESCENDO robot on the field" class="photo wide" loading="lazy">
             <div class="slide-body">
-              <p class="eyebrow hot">2024 &nbsp;/&nbsp; Crescendo</p>
+              <p class="tag hot">2024 &nbsp;/&nbsp; Crescendo</p>
               <h3 class="display h-lg mt-1">Crescendo</h3>
               <p class="mt-2">
                 Our 2024 build, which picked up awards for both autonomous
@@ -226,17 +221,17 @@
 
         <div class="slider-nav">
           <button class="dot is-active" type="button" aria-label="Show 2025 robot">
-            <i></i><span class="dot-year">2025</span>
+            <span class="bar"><i></i></span><span class="dot-year">2025</span>
           </button>
           <button class="dot" type="button" aria-label="Show 2024 robot">
-            <i></i><span class="dot-year">2024</span>
+            <span class="bar"><i></i></span><span class="dot-year">2024</span>
           </button>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="band-dark">
+  <section>
     <div class="wrap">
       <div class="head-row reveal">
         <div>
@@ -247,7 +242,7 @@
 
       <div class="grid g-3 mt-4 reveal reveal-group">
         <div class="card">
-          <p class="eyebrow hot">Annual event</p>
+          <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v6l-5 9a2 2 0 0 0 1.8 3h12.4A2 2 0 0 0 20 18l-5-9V3"/><path d="M8 3h8"/><path d="M7 15h10"/></svg></span><p class="tag hot">Annual event</p>
           <h3 class="display h-sm mt-2">Science Rendezvous</h3>
           <p class="mt-2" style="font-size:0.92rem">
             Parents and youth explore our program, drive the MiniBots, and get
@@ -255,7 +250,7 @@
           </p>
         </div>
         <div class="card">
-          <p class="eyebrow hot">Every week</p>
+          <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5"/><path d="m16 7 5 5-5 5"/><path d="M13 4 11 20"/></svg></span><p class="tag hot">Every week</p>
           <h3 class="display h-sm mt-2">HackNights</h3>
           <p class="mt-2" style="font-size:0.92rem">
             Hands-on build nights. Spaghetti towers, rubber band cars,
@@ -263,7 +258,7 @@
           </p>
         </div>
         <div class="card">
-          <p class="eyebrow hot">Ages 14 to 18</p>
+          <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="11" rx="2.5"/><path d="M12 8V4"/><circle cx="12" cy="3" r="1.4"/><path d="M9 13h.01M15 13h.01"/><path d="M9.5 16.5h5"/></svg></span><p class="tag hot">Ages 14 to 18</p>
           <h3 class="display h-sm mt-2">MiniBots</h3>
           <p class="mt-2" style="font-size:0.92rem">
             A multi-week program modelled on FRC, with custom bots in 2 vs 2
@@ -299,7 +294,7 @@
     </div>
   </section>
 
-  <section class="band-grey">
+  <section>
     <div class="wrap">
       <h2 class="display h-xl mt-2 narrow split-in">Robots Need <span class="accent">Builders</span></h2>
       <p class="lead mt-3 reveal">
@@ -352,9 +347,9 @@
     </div>
 
     <div class="footer-bottom">
-      <p class="eyebrow">&copy; <span data-year>2026</span> NACI Robotics</p>
-      <p class="eyebrow">FRC Team 2935</p>
-      <p class="eyebrow">North Albion Collegiate Institute</p>
+      <p class="tag">&copy; <span data-year>2026</span> NACI Robotics</p>
+      <p class="tag">FRC Team 2935</p>
+      <p class="tag">North Albion Collegiate Institute</p>
     </div>
   </div>
 </footer>
